@@ -1,0 +1,28 @@
+* { margin: 0; padding: 0; }
+
+body { font-family: 'Poppins', sans-serif; }
+
+body header { background-color: #ffffff; }
+
+body header .navContainer { height: 30vh; }
+
+body header .navContainer .navLogoContainer { background-color: black; color: white; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 20vh; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 30%; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscar { height: 30px; width: 50%; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario { display: -webkit-box; display: -ms-flexbox; display: flex; list-style: none; width: 30%; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario a { text-decoration: none; color: white; }
+
+body header .navContainer .navSecciones { height: 10vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+body header .navContainer .navSecciones .navSeccionesLista { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 50%; list-style: none; }
+
+body header .navContainer .navSecciones .navSeccionesLista a { text-decoration: none; color: black; }
+
+body main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content; }
+
+body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; -ms-grid-rows: 1fr 1fr; grid-template-rows: 1fr 1fr; height: 50vh; margin-top: 10vh; }
+/*# sourceMappingURL=estilos.css.map */

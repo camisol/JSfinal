@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+
+    header{
+        background-color: #ffffff;
+        
+        .navContainer{
+            height: 30vh ;
+            .navLogoContainer{
+                background-color: black;
+                color: white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 20vh;
+                .navBuscarConfContainer{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 30%;
+                    
+                    .navBuscar{
+                        height: 30px;
+                        width: 50%;
+                    }
+                    .navConfigUsuario{
+                        display: flex;
+                        
+                        list-style: none;
+                        width: 30%;
+                        
+                        a{
+                            text-decoration: none;
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            .navSecciones{
+                height: 10vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .navSeccionesLista {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 50%;
+                    list-style: none;
+                    a{
+                        text-decoration: none;
+                        color: black;
+                    }
+                }
+            }
+        }
+    }
+
+    main{
+        display: flex;
+        justify-content: center;
+        height: fit-content;
+        
+        .productosContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            height: 50vh;
+            margin-top: 10vh;
+        }
+
+        
+        
+    }
+
+}
