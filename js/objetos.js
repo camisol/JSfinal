@@ -13,10 +13,10 @@ class productosNuevos {
 }
 
 let sky = new productosNuevos (5, 'Oxford', 12300, 7);
-
 productos.push(sky);
 let savy = new productosNuevos (6, 'Savy', 11200, 3);
-
 productos.push(savy);
+let raven = new productosNuevos(7,'Raven',9500,5);
+productos.push(raven);
 
 
