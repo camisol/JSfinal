@@ -23,18 +23,19 @@ productos.push(raven);
 
 
 //mostrar productos por dom
+
 const mostrarProductos = (array) => {
     
   for (const producto of array) {
-      let contenedor = document.querySelector('#productosContainer')
-      let newDiv= document.createElement('div');
-      newDiv.className = "productos";
-      newDiv.innerHTML = 
-      `<img class='fotoProducto' src='imagenes/fotoProducto${producto.id}.jpeg'>
-      <h3> ${producto.nombre}</h3>
-      <p> $${producto.precio}</p>
-      <button class='btnAgregar' id='btn${producto.id}Agregar'>agregar</button>`;
-      contenedor.appendChild(newDiv);
+      
+      let nuevoProducto = $(`
+      <div class="productos" id="producto${producto.id}">
+        <img class='fotoProducto' src='imagenes/fotoProducto${producto.id}.jpeg'>
+        <h3> ${producto.nombre}</h3>
+        <p> $${producto.precio}</p>
+        <button class='btnAgregar' id='btn${producto.id}Agregar'>agregar</button>
+      </div>`);
+      $('#productosContainer').prepend(nuevoProducto);
   }
 }
 
@@ -42,7 +43,7 @@ const mostrarProductos = (array) => {
 
 const agregarProductos = () => {
   productos.forEach((producto)=>{
-      $(`#btn${producto.id}Agregar`).on('click', function () {
+      $(`#btn${producto.id}Agregar`).click(function () {
           $(`<p class='p' id='p'> 1 ${producto.nombre} por $${producto.precio} agregado al carrito</p>`).insertBefore('#resumenCompra')
           
           $('#resumenCompra').show();
@@ -63,26 +64,22 @@ const agregarProductos = () => {
   })
 }
 
-
 //boton para finalizar la compra 
 const finalizarCompra = () => {
-  $('.btnCompra').on('click', function (){
+  $('.btnCompra').click(function (){
     $('#mensajeFinal').append(`<p>Gracias por tu compra!</p>`);
     $('#cart').remove();
   })
-  
 }
 
-//BOTON PARA MODO DARK
-
-let btnModo = document.getElementById('btnDark');
-btnModo.onclick = () => {
+//BOTON MODO DARK
+$('#btnDark').click(function (){
 document.body.classList.toggle('dark');
 btnDark.classList.toggle('active');
-}
+})
 
 
-//llamar funciones
+//LLAMAR FUNCIONES//
 
 $('#resumenCompra').hide();
 
