@@ -16,7 +16,10 @@
             <div class="navLogoContainer">
                 <h1 class="navLogo">THE FIT SHOP</h1>
                 <div class="navBuscarConfContainer">
-                    <input class="navBuscar" type="text" id="" name="" placeholder="Buscar">
+                    <div class="navBuscarContainer">
+                        <input class="navBuscar" type="text" id="" name="" placeholder="Buscar...">
+                        <span class="btnBuscar"><i class="fas fa-search"></i></span>
+                    </div>
                     <ul class="navConfigUsuario">
                         <li><a class="navUsuario" href="#"><i class="fas fa-user"></i></a></li>
                         <li><a class="navFavoritos" href="#"><i class="fas fa-heart"></i></a></li>
@@ -43,8 +46,14 @@
     <main>
         <div class="productosContainer" id="productosContainer">
         </div>
-        <div class= "resumenCompra" id="resumenCompra">
+        <div class="cart" id="cart">
+            <div id="resumenCompra">
+                <p id="totalCompra"></p>
+                <button class="btnCompra" id="btnCompra">comprar</button>
+            </div>
+            
         </div>
+        <div id="mensajeFinal"></div>
         
     </main>  
        
@@ -52,7 +61,7 @@
     
   
 
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/42799169ef.js" crossorigin="anonymous"></script>
     <script src="js/variables.js"></script>
     <script src="js/objetos.js"></script>

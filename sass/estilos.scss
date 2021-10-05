@@ -6,6 +6,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     transition: .5s;
+   
 
     header{
         background-color: #ffffff;
@@ -27,13 +28,39 @@ body{
                     width: 45%;
                     height: 30%;
                     margin-right: 2%;
-
-                    .navBuscar{
+                    .navBuscarContainer{
                         height: 100%;
                         width: 60%;
-                        border: none;
-                        border-radius: 20px;
+                        position: relative;
+                        display: flex;
+                        justify-content: flex-end;
                         margin-right: 2%;
+
+                        .navBuscar{
+                            height: 100%;
+                            width: 100%;
+                            border: none;
+                            border-radius: 20px;
+                            padding-left: 1em;
+                            font-size: 1em;
+                            font-family: 'Poppins', sans-serif;
+                        }
+
+                        .btnBuscar{
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: absolute;
+                            color: black;
+                            font-size: 20px;
+                            height: 100%;
+                            width: 2em;
+                            z-index: 1;
+                            border-radius: 20px;
+                            cursor: pointer;
+                            
+                            
+                        }
                     }
 
                     .navConfigUsuario{
@@ -120,13 +147,19 @@ body{
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             margin-top: 10vh;
-            width: 60%;
+            width: 80%;
             column-gap: 10%;
+            margin-bottom: 10%;
             .productos{
                 display: flex;
                 flex-direction: column;
-                height: 30vh;
                 
+                
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
                 h3{
                     height: 30%;
                 }
@@ -134,6 +167,19 @@ body{
                     transition: .5s;
                 }
             }
+        }
+
+        #cart{
+
+            #resumenCompra{
+                #btnCompra{
+                    margin-bottom: 20vh;
+                }
+            }
+        }
+
+        #mensajeFinal{
+            margin-bottom: 20vh;
         }
     }
 

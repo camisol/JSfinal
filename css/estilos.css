@@ -10,7 +10,11 @@ body header .navContainer .navLogoContainer { background-color: black; color: wh
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 45%; height: 30%; margin-right: 2%; }
 
-body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscar { height: 100%; width: 60%; border: none; border-radius: 20px; margin-right: 2%; }
+body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer { height: 100%; width: 60%; position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-right: 2%; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .navBuscar { height: 100%; width: 100%; border: none; border-radius: 20px; padding-left: 1em; font-size: 1em; font-family: 'Poppins', sans-serif; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .btnBuscar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; color: black; font-size: 20px; height: 100%; width: 2em; z-index: 1; border-radius: 20px; cursor: pointer; }
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; list-style: none; width: 18%; height: 100%; }
 
@@ -36,13 +40,19 @@ body header .navContainer .navSecciones .navSeccionesLista a { text-decoration: 
 
 body main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content; width: 100%; }
 
-body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; margin-top: 10vh; width: 60%; -webkit-column-gap: 10%; column-gap: 10%; }
+body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; margin-top: 10vh; width: 80%; -webkit-column-gap: 10%; column-gap: 10%; margin-bottom: 10%; }
 
-body main .productosContainer .productos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; height: 30vh; }
+body main .productosContainer .productos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+body main .productosContainer .productos img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
 
 body main .productosContainer .productos h3 { height: 30%; }
 
 body main .productosContainer .productos #btnAgregar { -webkit-transition: .5s; transition: .5s; }
+
+body main #cart #resumenCompra #btnCompra { margin-bottom: 20vh; }
+
+body main #mensajeFinal { margin-bottom: 20vh; }
 
 body.dark { background-color: #242323; color: white; }
 
