@@ -8,9 +8,7 @@ class productosNuevos {
       this.nombre = `Zapatillas ${nombre}`;
       this.precio = Number(precio);
       this.stock = stock;
-
   }
-
 }
 
 let sky = new productosNuevos (5, 'Oxford', 12300, 7);
@@ -19,7 +17,6 @@ let savy = new productosNuevos (6, 'Savy', 11200, 3);
 productos.push(savy);
 let raven = new productosNuevos(7,'Raven',9500,5);
 productos.push(raven);
-
 
 
 //FUNCIONES
@@ -38,21 +35,23 @@ const mostrarProductos = (array) => {
       <p> $${producto.precio}</p>
       <button class='btnAgregar' id='btn${producto.id}Agregar'>agregar</button>`;
       contenedor.appendChild(newDiv);
-
   }
 }
 
 //agregar productos al carrito y mostrarlos en dom 
+
 const agregarProductos = () => {
   productos.forEach((producto)=>{
       $(`#btn${producto.id}Agregar`).on('click', function () {
           $(`<p class='p' id='p'> 1 ${producto.nombre} por $${producto.precio} agregado al carrito</p>`).insertBefore('#resumenCompra')
           
-          cart.push(producto.precio);
           $('#resumenCompra').show();
+
+          cart.push(producto.precio);
 
           let suma = 0;
           let mostrar = 0;
+
           $('#totalCompra').empty()
 
           cart.forEach((elementos)=> {
@@ -75,6 +74,7 @@ const finalizarCompra = () => {
 }
 
 //BOTON PARA MODO DARK
+
 let btnModo = document.getElementById('btnDark');
 btnModo.onclick = () => {
 document.body.classList.toggle('dark');

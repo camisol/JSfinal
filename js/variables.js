@@ -3,7 +3,7 @@
 
 let productos = [
 
-    
+
     {id: 1, 
     nombre:'Zapatillas Black', 
     precio: 10000, 
@@ -31,9 +31,7 @@ let productos = [
 ];
 
     
-/* guarda string descripcion de los productos elegidos para 
-tirar en el resumen de la compra (funcion resumen()).
-Se pushea desde la funcion agregar() */
+/* guarda precios de productos seleccionados*/
 
 let cart = [];
 
