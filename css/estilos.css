@@ -40,9 +40,9 @@ body header .navContainer .navSecciones .navSeccionesLista a { text-decoration: 
 
 body main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content; width: 100%; }
 
-body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; margin-top: 10vh; width: 80%; -webkit-column-gap: 10%; column-gap: 10%; margin-bottom: 10%; }
+body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; margin-top: 10vh; width: 80%; -webkit-column-gap: 10%; column-gap: 10%; }
 
-body main .productosContainer .productos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+body main .productosContainer .productos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; margin-bottom: 20%; }
 
 body main .productosContainer .productos img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
 
@@ -50,7 +50,7 @@ body main .productosContainer .productos h3 { height: 30%; }
 
 body main .productosContainer .productos #btnAgregar { -webkit-transition: .5s; transition: .5s; }
 
-body main #cart #resumenCompra #btnCompra { margin-bottom: 20vh; }
+body main #cart #resumenCompra #btnCompra { height: 2em; width: 5em; }
 
 body main #mensajeFinal { margin-bottom: 20vh; }
 

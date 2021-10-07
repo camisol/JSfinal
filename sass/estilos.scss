@@ -149,37 +149,36 @@ body{
             margin-top: 10vh;
             width: 80%;
             column-gap: 10%;
-            margin-bottom: 10%;
+            
             .productos{
                 display: flex;
                 flex-direction: column;
-                
+                margin-bottom: 20%;
                 
                 img{
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
-                }
+                    object-fit: cover;}
+
                 h3{
-                    height: 30%;
-                }
+                    height: 30%;}
+
                 #btnAgregar{
-                    transition: .5s;
-                }
+                    transition: .5s;}
             }
         }
 
         #cart{
-
             #resumenCompra{
                 #btnCompra{
-                    margin-bottom: 20vh;
+                    height: 2em;
+                    width: 5em;
                 }
             }
         }
 
         #mensajeFinal{
-            margin-bottom: 20vh;
+            margin-bottom: 20vh ;
         }
     }
 

@@ -1,91 +1,82 @@
+let productos = JSON.parse(data);
+let i =0;
+let suma = 0;
+
 //OBJETOS
-
-/* Crear nuevos productos y agregarlos al stock (productos[]) */
-
+//producto 
 class productosNuevos {
   constructor(id,nombre, precio, stock) {
       this.id = id;
       this.nombre = `Zapatillas ${nombre}`;
       this.precio = Number(precio);
-      this.stock = stock;
-  }
-}
-
-let sky = new productosNuevos (5, 'Oxford', 12300, 7);
-productos.push(sky);
-let savy = new productosNuevos (6, 'Savy', 11200, 3);
-productos.push(savy);
-let raven = new productosNuevos(7,'Raven',9500,5);
-productos.push(raven);
-
+      this.stock = stock;}}
 
 //FUNCIONES
-
-
-//mostrar productos por dom
 
 const mostrarProductos = (array) => {
     
   for (const producto of array) {
-      
       let nuevoProducto = $(`
       <div class="productos" id="producto${producto.id}">
-        <img class='fotoProducto' src='imagenes/fotoProducto${producto.id}.jpeg'>
+        <img class='fotoProducto' src='imagenes/fotoProducto${producto.id}.jpg'>
         <h3> ${producto.nombre}</h3>
         <p> $${producto.precio}</p>
         <button class='btnAgregar' id='btn${producto.id}Agregar'>agregar</button>
       </div>`);
-      $('#productosContainer').prepend(nuevoProducto);
-  }
-}
+      $('#productosContainer').prepend(nuevoProducto);}}
 
-//agregar productos al carrito y mostrarlos en dom 
-
+//agregar productos al carrito y mostrarlos
 const agregarProductos = () => {
+
   productos.forEach((producto)=>{
-      $(`#btn${producto.id}Agregar`).click(function () {
-          $(`<p class='p' id='p'> 1 ${producto.nombre} por $${producto.precio} agregado al carrito</p>`).insertBefore('#resumenCompra')
-          
-          $('#resumenCompra').show();
+    $(`#btn${producto.id}Agregar`).click(function () {
+      
+      if (producto.stock<=0){
+        alert('No hay más stock de este producto');
+      }else{
 
-          cart.push(producto.precio);
+        $('#resumenCompra').show();
+        producto.stock -= 1;
 
-          let suma = 0;
-          let mostrar = 0;
+        i++
+        for (const elemento of productos) {
+          if (elemento.id === producto.id) {
+            sessionStorage.setItem(`producto${i}`, JSON.stringify({producto}))
+            let get = JSON.parse(sessionStorage.getItem(`producto${i}`));
+            $(`<p class='p' id='p'> 1 ${get.producto.nombre} por $${get.producto.precio} agregado al carrito</p>`).insertBefore('#resumenCompra')
 
-          $('#totalCompra').empty()
-
-          cart.forEach((elementos)=> {
-              suma += elementos;
-          })
-          mostrar = $('#totalCompra').append(`Tu compra es de $${suma}`);
-          return mostrar
-      });
+            $('#totalCompra').empty()
+            suma += get.producto.precio
+            mostrar = $('#totalCompra').append(`Tu compra es de $${suma}`);
+          }
+        }
+      }
+    }) 
   })
 }
 
-//boton para finalizar la compra 
+//finalizar la compra 
 const finalizarCompra = () => {
   $('.btnCompra').click(function (){
     $('#mensajeFinal').append(`<p>Gracias por tu compra!</p>`);
     $('#cart').remove();
+    sessionStorage.clear();
   })
 }
 
-//BOTON MODO DARK
+//modo dark
 $('#btnDark').click(function (){
 document.body.classList.toggle('dark');
 btnDark.classList.toggle('active');
 })
 
-
-//LLAMAR FUNCIONES//
-
+//LLAMAR FUNCIONES
 $('#resumenCompra').hide();
-
 mostrarProductos(productos);
 agregarProductos();
 finalizarCompra();
+
+
 
 
 
