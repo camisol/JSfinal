@@ -3,17 +3,23 @@
     padding: 0;
 }
 
+.hidden {
+    display:none
+}
+
 body{
     font-family: 'Poppins', sans-serif;
     transition: .5s;
-   
 
+    
+   
     header{
         background-color: #ffffff;
         width: 100%;
         
         .navContainer {
             height: 30vh ;
+            
             .navLogoContainer{
                 background-color: black;
                 color: white;
@@ -21,6 +27,7 @@ body{
                 justify-content: space-between;
                 align-items: center;
                 height: 20vh;
+                
                 .navBuscarConfContainer{
                     display: flex;
                     justify-content: center;
@@ -58,8 +65,6 @@ body{
                             z-index: 1;
                             border-radius: 20px;
                             cursor: pointer;
-                            
-                            
                         }
                     }
 
@@ -70,6 +75,13 @@ body{
                         list-style: none;
                         width: 18%;
                         height: 100%;
+                        .navCart {
+                            color: white;
+                            background: none;
+                            border: none;
+                            font-size: 20px;
+                            cursor: pointer;
+                        }
                         a{
                             text-decoration: none;
                             color: white;
@@ -78,6 +90,38 @@ body{
                             }
                         }
                     }
+                    .carritoInner{
+                        position: absolute;
+                        top: 14vh;
+                        right: 8%;
+                        background-color: white;
+                        color: black;
+                        height: 60vh;
+                        width: 20%;
+                        overflow-y: scroll;
+                        border: .1px rgb(216, 213, 213) solid;
+                        
+                        &.noMostrar {
+                            display: none;
+                        }
+
+                        #elegidos{
+                            .btnQuitar{
+                                cursor: pointer;
+                                background-color: red;
+                                color: white;
+                            }
+
+                            
+                        }
+                        #totalContainer{
+                            display: flex;
+                        }
+                    }
+
+                    .carritoInner::-webkit-scrollbar {
+                        display: none;
+                      }
 
                     .btnDark {
                         border: none;
@@ -113,8 +157,12 @@ body{
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                background-color: white;
+                
+                
                 //border-bottom: solid 1px rgb(91, 87, 87);
                 box-shadow: 0px 0px 10px rgb(133, 132, 132);
+                
                 transition: .5s;
     
                 .navSeccionesLista {
@@ -128,7 +176,6 @@ body{
                         text-decoration: none;
                         color: black;
                         transition: .5s;
-
                     }
                 }
             }
@@ -136,7 +183,6 @@ body{
     }
 
     main{
-
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -155,6 +201,7 @@ body{
                 flex-direction: column;
                 margin-bottom: 20%;
                 
+                
                 img{
                     width: 100%;
                     height: 100%;
@@ -168,21 +215,31 @@ body{
             }
         }
 
-        #cart{
-            #resumenCompra{
-                #btnCompra{
-                    height: 2em;
-                    width: 5em;
-                }
+        
+        .toastContainer{
+            //width: 40%;
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            .toastBox{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            border: solid .5px gainsboro;
+            background-color: white;
+            width: 20rem;
+            height: 5rem;
+            
+            
             }
         }
+    
 
-        #mensajeFinal{
-            margin-bottom: 20vh ;
-        }
+       
     }
 
-    //--------------- clase dark -----------------------------
+
+    //--------------- clase dark -----------------------------//
 
     &.dark {
         background-color: rgb(36, 35, 35);
@@ -212,5 +269,4 @@ body{
             }
         }
     }
-
 }
