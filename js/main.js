@@ -1,5 +1,5 @@
 // variables
-let productos = JSON.parse(data);
+let productos = JSON.parse(datajs);
 let cart = [];
 let i = 0;
 
@@ -63,10 +63,29 @@ $('#filterSelect').change(() => {
     agregarProductos(productos)
 
   }
+})
+
+//ANIMACION CARRITO - DESAFIO 13
+const animacion = () => {
+  $('.navCart').slideUp()
+    .slideDown()
+}
+
+
+//tomar de JSON. Mostrar y agregar productos al carrito. DESAFIO 14
+
+$.getJSON("js/data.json", function (response, state) {
+  if (state === "success") {
+    let productos1 = response
+
+    mostrarProductos(productos1)
+    agregarProductos(productos1)
+  }
 });
 
 
 //DIBUJAR PRODUCTOS
+
 const mostrarProductos = (array) => {
   $('#productosContainer').html('')
   for (const producto of array) {
@@ -81,8 +100,6 @@ const mostrarProductos = (array) => {
   }
 }
 
-mostrarProductos(productos);
-
 
 //MOSTRAR CARRITO
 $('.navCart').click(() => {
@@ -91,9 +108,11 @@ $('.navCart').click(() => {
 
 
 //AGREGAR PRODUCTO AL CARRITO
+
 const agregarProductos = (array) => {
+
   array.forEach((producto) => {
-    $(`#btn${producto.id}Agregar`).click((e) => {
+    $(`#btn${producto.id}Agregar`).click(() => {
 
       if (producto.stock <= 0) {
         alert('No hay más stock de este producto');
@@ -124,29 +143,10 @@ const agregarProductos = (array) => {
         $('#totalNumero').append(subtotal1)
 
         i++
-
-        // sessionStorage.clear();
-        // JSON.parse(sessionStorage.getItem(cart));
-        // cart.push(producto);
-        // sessionStorage.setItem(cart, JSON.stringify({ cart }));
-
-        // $('.carritoInner #elegidos').append(`
-        //      <div class="seleccionados">
-        //       <img src="imagenes/fotoProducto${producto.id}.jpg" height="200px">
-        //       <p> ${producto.nombre}</p> 
-        //       <p class="prodPrecio">${producto.precio}</p>
-        //        <a class="btnQuitar">x</a>
-        //     </div>`)
-
-        // let subtotal1 = parseInt($('#totalNumero').html()) + producto.precio
-        // $('#totalNumero').empty()
-        // $('#totalNumero').append(subtotal1)
       }
     })
   })
 }
-agregarProductos(productos);
-
 
 
 //ELIMINAR PRODUCTO DEL CARRITO
@@ -162,6 +162,7 @@ const eliminarProductos = () => {
     e.target.parentElement.remove();
 
     crearToast(nombre, precio, `eliminado del`)
+    cerrarToast()
 
     for (elementos of cart) {
       if (elementos.precio == precio) {
@@ -177,7 +178,6 @@ const eliminarProductos = () => {
         }
       }
     }
-
   })
 }
 
@@ -202,6 +202,17 @@ const crearToast = (nombre, precio, texto) => {
   setTimeout(() => {
     $(nuevoToast).remove()
   }, 4000);
+
+  cerrarToast()
+}
+
+// cerrar toast
+const cerrarToast = () => {
+  $('.close').click((e) => {
+    let toast = e.currentTarget.parentNode
+    toast.remove()
+
+  })
 }
 
 
@@ -215,11 +226,6 @@ const finalizarCompra = () => {
 
 finalizarCompra();
 
-//ANIMACION CARRITO - DESAFIO 13
-const animacion = () => {
-  $('.navCart').slideUp()
-    .slideDown()
-}
 
 
 
