@@ -27,9 +27,12 @@
                         <li><a class="navFavoritos" href="#"><i class="fas fa-heart"></i></a></li>
                         <li><a class="navCart" href="#"><i class="fas fa-shopping-cart"></i></a></li>
                     </ul>
+                    <button class="btnDark active" id="btnDark">
+                        <span><i class="far fa-sun"></i></span>
+                        <span><i class="far fa-moon"></i></span>
+                    </button>
 
-
-                    <div class="carritoInner noMostrar">
+                    <div class="carritoInner hidden">
                         <p id="cartEmpty">Tu carrito está vacío</p>
                         <div id="elegidos"></div>
                         <div class="comprar hidden" id="comprar">
@@ -41,13 +44,10 @@
                         </div>
                         <div id="mensajeFinal"></div>
                     </div>
-                    <button class="btnDark active" id="btnDark">
-                        <span><i class="far fa-sun"></i></span>
-                        <span><i class="far fa-moon"></i></span>
-                    </button>
+
                 </div>
             </div>
-            <div class="navSecciones">
+            <div class="navSecciones" id="navSecciones">
                 <ul class="navSeccionesLista">
                     <li><a class="navListaItems" href="#">novedades</a></li>
                     <li><a class="navListaItems" href="#">urbano</a></li>
@@ -66,22 +66,15 @@
             <option class="opcion2" value="2">$5000 - $10000</option>
             <option class="opcion3" value="3">$10000 - $15000</option>
             <option class="opcion4" value="4">$15000 +</option>
-
-
         </select>
 
         <div class="productosContainer" id="productosContainer">
-
         </div>
+
         <div class="toastContainer">
-
         </div>
-
 
     </main>
-
-
-
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

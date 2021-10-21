@@ -28,8 +28,6 @@ body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUs
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner { position: absolute; top: 14vh; right: 8%; background-color: white; color: black; height: 60vh; width: 20%; overflow-y: scroll; border: 0.1px #d8d5d5 solid; }
 
-body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner.noMostrar { display: none; }
-
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .btnQuitar { cursor: pointer; background-color: red; color: white; }
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #totalContainer { display: -webkit-box; display: -ms-flexbox; display: flex; }
@@ -47,6 +45,8 @@ body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark.act
 body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark.active .fa-sun { display: none; }
 
 body header .navContainer .navSecciones { height: 10vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; background-color: white; -webkit-box-shadow: 0px 0px 10px #858484; box-shadow: 0px 0px 10px #858484; -webkit-transition: .5s; transition: .5s; }
+
+body header .navContainer .navSecciones.hidden { display: none; }
 
 body header .navContainer .navSecciones .navSeccionesLista { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 50%; list-style: none; }
 

@@ -2,9 +2,10 @@
 let productos = JSON.parse(datajs);
 let cart = [];
 let i = 0;
+let subtotal2 = 0;
 
 
-//OBJETOS
+//OBJETO
 //producto 
 class productosNuevos {
   constructor(id, nombre, precio, stock) {
@@ -16,76 +17,7 @@ class productosNuevos {
 }
 
 
-//MODO DARK
-$('#btnDark').click(function () {
-  document.body.classList.toggle('dark');
-  btnDark.classList.toggle('active')
-});
-
-
-//FILTRAR POR NOMBRE
-const filtrarNombre = () => {
-  let searchValue = $('#navBuscar').val()
-  let filtrados = productos.filter((producto) => {
-    let productName = producto.nombre.toLowerCase();
-    return productName.includes(searchValue.toLowerCase())
-  })
-
-  if (filtrados.length > 0) {
-    mostrarProductos(filtrados)
-    agregarProductos(filtrados)
-  } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
-}
-$('#btnBuscar').on('click', filtrarNombre)
-$('#navBuscar').on("keyup", filtrarNombre)
-
-
-//FILTRAR POR PRECIO
-const filtrar = (minimo, maximo) => {
-  let filtrados2 = productos.filter(producto => producto.precio > minimo & producto.precio < maximo);
-  if (filtrados2.length > 0) {
-    mostrarProductos(filtrados2)
-    agregarProductos(filtrados2)
-  } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
-}
-
-$('#filterSelect').change(() => {
-  if ($('.opcion1').is(':selected')) {
-    filtrar(0, 5000)
-  } else if ($('.opcion2').is(':selected')) {
-    filtrar(5000, 10000)
-  } else if ($('.opcion3').is(':selected')) {
-    filtrar(10000, 15000)
-  } else if ($('.opcion4').is(':selected')) {
-    filtrar(15000)
-  } else {
-    mostrarProductos(productos)
-    agregarProductos(productos)
-
-  }
-})
-
-//ANIMACION CARRITO - DESAFIO 13
-const animacion = () => {
-  $('.navCart').slideUp()
-    .slideDown()
-}
-
-
-//tomar de JSON. Mostrar y agregar productos al carrito. DESAFIO 14
-
-$.getJSON("js/data.json", function (response, state) {
-  if (state === "success") {
-    let productos1 = response
-
-    mostrarProductos(productos1)
-    agregarProductos(productos1)
-  }
-});
-
-
-//DIBUJAR PRODUCTOS
-
+//MOSTRAR PRODUCTOS
 const mostrarProductos = (array) => {
   $('#productosContainer').html('')
   for (const producto of array) {
@@ -101,14 +33,7 @@ const mostrarProductos = (array) => {
 }
 
 
-//MOSTRAR CARRITO
-$('.navCart').click(() => {
-  $('.carritoInner').toggleClass('noMostrar')
-});
-
-
 //AGREGAR PRODUCTO AL CARRITO
-
 const agregarProductos = (array) => {
 
   array.forEach((producto) => {
@@ -118,27 +43,18 @@ const agregarProductos = (array) => {
         alert('No hay más stock de este producto');
       } else {
 
-        animacion()
         $('#cartEmpty').addClass('hidden')
         $('#comprar').removeClass('hidden');
         producto.stock -= 1;
 
-        sessionStorage.clear();
-        JSON.parse(sessionStorage.getItem(cart));
         cart.push(producto);
-        sessionStorage.setItem(cart, JSON.stringify({ cart }));
+        localStorage.setItem('cart', JSON.stringify({ cart }));
 
-        crearToast(`${cart[i].nombre}`, `${cart[i].precio}`, `agregado al`);
+        crearToast(`${producto.nombre}`, `${producto.precio}`, `agregado al`);
 
-        $('.carritoInner #elegidos').append(`
-            <div class="seleccionados">
-              <img src="imagenes/fotoProducto${cart[i].id}.jpg" height="200px">
-              <p> ${cart[i].nombre}</p> 
-              <p class="prodPrecio">${cart[i].precio}</p>
-              <a class="btnQuitar">x</a>
-            </div>`)
+        cardSelected(producto)
 
-        let subtotal1 = parseInt($('#totalNumero').html()) + cart[i].precio
+        let subtotal1 = parseInt($('#totalNumero').html()) + producto.precio
         $('#totalNumero').empty()
         $('#totalNumero').append(subtotal1)
 
@@ -155,9 +71,9 @@ const eliminarProductos = () => {
 
     let nombre = e.target.previousElementSibling.previousElementSibling.innerHTML;
     let precio = e.target.previousElementSibling.innerHTML;
-    let subtotal2 = parseInt($('#totalNumero').html()) - precio
+    let subtotal3 = parseInt($('#totalNumero').html()) - precio
     $('#totalNumero').empty()
-    $('#totalNumero').append(subtotal2)
+    $('#totalNumero').append(subtotal3)
 
     e.target.parentElement.remove();
 
@@ -168,8 +84,7 @@ const eliminarProductos = () => {
       if (elementos.precio == precio) {
         let index = cart.indexOf(elementos);
         cart.splice(index, 1);
-        sessionStorage.clear()
-        sessionStorage.setItem(cart, JSON.stringify({ cart }))
+        localStorage.setItem('cart', JSON.stringify({ cart }))
         i--
 
         if (cart.length === 0) {
@@ -181,10 +96,40 @@ const eliminarProductos = () => {
   })
 }
 
-eliminarProductos();
+
+// crear card de producto seleccionado en carrito
+const cardSelected = (prod) => {
+  $('.carritoInner #elegidos').append(`
+            <div class="seleccionados">
+              <img src="imagenes/fotoProducto${prod.id}.jpg" height="200px">
+              <p> ${prod.nombre}</p> 
+              <p class="prodPrecio">${prod.precio}</p>
+              <a class="btnQuitar">x</a>
+            </div>`)
+
+}
 
 
-// CREAR AVISO POR PRODUCTO AGREGADO O ELIMINADO DEL CARRITO
+// conservar carrito cuando se actualiza la página
+const guardarCart = () => {
+  let local = JSON.parse(localStorage.getItem('cart'));
+  if ($('#elegidos').is(':empty') || local.cart > 0) {
+
+    local.cart.forEach((e) => {
+      cardSelected(e)
+      cart.push(e)
+      subtotal2 += e.precio
+
+      $('#cartEmpty').addClass('hidden')
+      $('#comprar').removeClass('hidden');
+      $('#totalNumero').empty()
+      $('#totalNumero').append(subtotal2)
+    })
+  }
+}
+
+
+// CREAR TOAST POR PRODUCTO AGREGADO O ELIMINADO DEL CARRITO
 const crearToast = (nombre, precio, texto) => {
   let nuevoToast = $(`
         <div class="toastBox">
@@ -206,49 +151,114 @@ const crearToast = (nombre, precio, texto) => {
   cerrarToast()
 }
 
-// cerrar toast
+// CERRAR TOAST
 const cerrarToast = () => {
   $('.close').click((e) => {
     let toast = e.currentTarget.parentNode
     toast.remove()
-
   })
 }
 
 
-//FINALIZAR COMPRA
-const finalizarCompra = () => {
-  $('.btnComprar').click(() => {
-    $('#mensajeFinal').append(`<p>Gracias por tu compra!</p>`);
-    sessionStorage.clear()
+//FILTRAR POR NOMBRE
+// const filtrarNombre = () => {
+//   let searchValue = $('#navBuscar').val()
+//   let filtrados = (productos).filter((producto) => {
+
+//     let productName = producto.nombre.toLowerCase()
+//     return productName.includes(searchValue.toLowerCase())
+//   })
+
+//   if (filtrados.length > 0) {
+//     mostrarProductos(filtrados)
+//     agregarProductos(filtrados)
+//   } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
+
+// }
+// $('#btnBuscar').on('click', filtrarNombre)
+// $('#navBuscar').on("keyup", filtrarNombre)
+
+
+
+//FILTRAR POR PRECIO
+const filtrarPrecio = (minimo, maximo, array) => {
+  let filtrados2 = array.filter(producto => producto.precio > minimo & producto.precio < maximo);
+  if (filtrados2.length > 0) {
+    mostrarProductos(filtrados2)
+    agregarProductos(filtrados2)
+  } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
+}
+
+const filtrarPrecioValores = (array) => {
+  $('#filterSelect').change(() => {
+    if ($('.opcion1').is(':selected')) {
+      filtrarPrecio(0, 5000, array)
+    } else if ($('.opcion2').is(':selected')) {
+      filtrarPrecio(5000, 10000, array)
+    } else if ($('.opcion3').is(':selected')) {
+      filtrarPrecio(10000, 15000, array)
+    } else if ($('.opcion4').is(':selected')) {
+      filtrarPrecio(15000)
+    } else {
+      mostrarProductos(array)
+      agregarProductos(array)
+
+    }
   })
-};
+}
 
-finalizarCompra();
+//MOSTRAR CARRITO
+$('.navCart').click(() => {
+  $('.carritoInner').toggleClass('hidden')
+});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//FINALIZAR COMPRA
+$('.btnComprar').click(() => {
+  $('main').html('')
+  $('.navSecciones').addClass('hidden')
+  $('main').append(`<p>PAGINA DE PAGO</p>`);
+  $('.carritoInner').toggleClass('hidden')
+  localStorage.clear()
+})
 
 
+//MODO DARK
+$('#btnDark').click(function () {
+  document.body.classList.toggle('dark');
+  btnDark.classList.toggle('active')
+});
 
 
+//-------------- tomar productos de JSON. DESAFIO 14 -----------------------------------
+$.getJSON("js/data.json", function (response, state) {
 
+  if (state === "success") {
+    let productos1 = response
+    mostrarProductos(productos1)
+    agregarProductos(productos1)
+    filtrarPrecioValores(productos1)
 
+    const filtrarNombre = () => {
+      let searchValue = $('#navBuscar').val()
+      let filtrados = productos1.filter((producto) => {
 
+        let productName = producto.nombre.toLowerCase()
+        return productName.includes(searchValue.toLowerCase())
+      })
 
+      if (filtrados.length > 0) {
+        mostrarProductos(filtrados)
+        agregarProductos(filtrados)
+      } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
 
+    }
+    $('#btnBuscar').on('click', filtrarNombre)
+    $('#navBuscar').on("keyup", filtrarNombre)
+  }
+})
 
+eliminarProductos();
+guardarCart()
 
 
 
