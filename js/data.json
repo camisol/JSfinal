@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "nombre": "Zapatillas Black",
+        "nombre": "Zapatillas Rainbow",
         "precio": 10000,
         "stock": 20
     },
@@ -13,13 +13,13 @@
     },
     {
         "id": 3,
-        "nombre": "Zapatillas Rainbow",
+        "nombre": "Zapatillas Space",
         "precio": 9000,
         "stock": 15
     },
     {
         "id": 4,
-        "nombre": "Zapatillas Space",
+        "nombre": "Zapatillas Light",
         "precio": 8500,
         "stock": 2
     },
@@ -40,5 +40,35 @@
         "nombre": "Zapatillas Savy",
         "precio": 10400,
         "stock": 6
+    },
+    {
+        "id": 8,
+        "nombre": "Zapatillas Ringo",
+        "precio": 15500,
+        "stock": 9
+    },
+    {
+        "id": 9,
+        "nombre": "Zapatillas Bull",
+        "precio": 14900,
+        "stock": 8
+    },
+    {
+        "id": 10,
+        "nombre": "Zapatillas Miller",
+        "precio": 16200,
+        "stock": 8
+    },
+    {
+        "id": 11,
+        "nombre": "Zapatillas Ziggy",
+        "precio": 17000,
+        "stock": 15
+    },
+    {
+        "id": 12,
+        "nombre": "Zapatillas Black",
+        "precio": 13900,
+        "stock": 8
     }
 ]

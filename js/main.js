@@ -1,8 +1,10 @@
 // variables
 let productos = JSON.parse(datajs);
+let productos1 = 0;
 let cart = [];
 let i = 0;
-let subtotal2 = 0;
+let subtotal3 = 0;
+let final = 0;
 
 
 //OBJETO
@@ -16,7 +18,6 @@ class productosNuevos {
   }
 }
 
-
 //MOSTRAR PRODUCTOS
 const mostrarProductos = (array) => {
   $('#productosContainer').html('')
@@ -24,13 +25,18 @@ const mostrarProductos = (array) => {
     let nuevoProducto = $(`
       <div class="productos" id="producto${producto.id}">
         <img class='fotoProducto' src='imagenes/fotoProducto${producto.id}.jpg'>
-        <h3> ${producto.nombre}</h3>
-        <p> $${producto.precio}</p>
-        <button class='btnAgregar' id='btn${producto.id}Agregar'>agregar</button>
+        <div class="prodNombreCont">
+          <h3>${producto.nombre}</h3>
+          <p>$${producto.precio}</p>
+        </div>
+        <button class='btnAgregar' id='btn${producto.id}Agregar'>+ Agregar</button>
       </div>`);
     $('#productosContainer').prepend(nuevoProducto);
   }
 }
+
+mostrarProductos(productos)
+
 
 
 //AGREGAR PRODUCTO AL CARRITO
@@ -39,7 +45,7 @@ const agregarProductos = (array) => {
   array.forEach((producto) => {
     $(`#btn${producto.id}Agregar`).click(() => {
 
-      if (producto.stock <= 0) {
+      if (producto.stock === 0) {
         alert('No hay más stock de este producto');
       } else {
 
@@ -59,55 +65,108 @@ const agregarProductos = (array) => {
         $('#totalNumero').append(subtotal1)
 
         i++
+        contadorCart()
       }
     })
   })
 }
 
+agregarProductos(productos)
+
+const eliminarConfirm = (productName) => {
+
+  let confirmText = `
+  <div class="confirm">
+    <p>Esta seguro que desea eliminar este producto?</p>
+    <p>${productName}</p>
+    <div class=btnConfirm>
+      <button id="btnSi">Sí</button>
+      <button id="btnNo">No</button>
+    </div>
+  </div>
+  `
+  $('main').prepend(confirmText)
+
+}
 
 //ELIMINAR PRODUCTO DEL CARRITO
 const eliminarProductos = () => {
   $('.carritoInner #elegidos').on('click', '.btnQuitar', (e) => {
 
-    let nombre = e.target.previousElementSibling.previousElementSibling.innerHTML;
-    let precio = e.target.previousElementSibling.innerHTML;
-    let subtotal3 = parseInt($('#totalNumero').html()) - precio
-    $('#totalNumero').empty()
-    $('#totalNumero').append(subtotal3)
+    let nombre = e.target.previousElementSibling.firstElementChild.innerHTML;
+    let precio = e.target.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.innerHTML;
 
-    e.target.parentElement.remove();
+    eliminarConfirm(nombre)
 
-    crearToast(nombre, precio, `eliminado del`)
-    cerrarToast()
+    $('#btnSi').click(() => {
+      let subtotal2 = parseInt($('#totalNumero').html()) - precio
+      $('#totalNumero').empty()
+      $('#totalNumero').append(subtotal2)
 
-    for (elementos of cart) {
-      if (elementos.precio == precio) {
-        let index = cart.indexOf(elementos);
-        cart.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify({ cart }))
-        i--
+      e.target.parentElement.remove();
 
-        if (cart.length === 0) {
-          $('#cartEmpty').removeClass('hidden')
-          $('#comprar').addClass('hidden');
-        }
+      crearToast(nombre, precio, `eliminado del`)
+
+      let found = cart.find(e => e.nombre === nombre)
+      let index = cart.indexOf(found);
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify({ cart }))
+
+      found.stock += 1
+
+      if (cart.length === 0) {
+        $('#cartEmpty').removeClass('hidden')
+        $('#comprar').addClass('hidden');
       }
-    }
+
+      i--
+      contadorCart()
+
+      $('.confirm').remove()
+      $('.carritoInner').addClass('hidden')
+    })
+
+    $('#btnNo').click(() => {
+      $('.confirm').remove()
+    })
+
   })
 }
+
+eliminarProductos()
+
+
+// contador de productos en carrito
+const contadorCart = () => {
+
+  let numeroContador = i
+  $('#contador').empty()
+  $('#contador').append(numeroContador)
+  $('#contador').removeClass('hidden')
+
+  if ($('#contador').html() == 0) {
+    $('#contador').addClass('hidden')
+  }
+}
+
 
 
 // crear card de producto seleccionado en carrito
 const cardSelected = (prod) => {
   $('.carritoInner #elegidos').append(`
             <div class="seleccionados">
-              <img src="imagenes/fotoProducto${prod.id}.jpg" height="200px">
-              <p> ${prod.nombre}</p> 
-              <p class="prodPrecio">${prod.precio}</p>
+              <img src="imagenes/fotoProducto${prod.id}.jpg" height="150px">
+              <div class="nombreSeleccionados">
+                <p>${prod.nombre}</p> 
+                <div class="precioSeleccionados">
+                  <p>$</p>
+                  <p class="prodPrecio">${prod.precio}</p>
+                </div>
+              </div>
               <a class="btnQuitar">x</a>
             </div>`)
-
 }
+
 
 
 // conservar carrito cuando se actualiza la página
@@ -118,15 +177,27 @@ const guardarCart = () => {
     local.cart.forEach((e) => {
       cardSelected(e)
       cart.push(e)
-      subtotal2 += e.precio
+      subtotal3 += e.precio
 
       $('#cartEmpty').addClass('hidden')
       $('#comprar').removeClass('hidden');
       $('#totalNumero').empty()
-      $('#totalNumero').append(subtotal2)
+      $('#totalNumero').append(subtotal3)
     })
+
+    let numeroContador1 = local.cart.length
+    $('#contador').empty()
+    $('#contador').append(numeroContador1)
+    $('#contador').removeClass('hidden')
+
+    if ($('#contador').html() == 0) {
+      $('#contador').addClass('hidden')
+    }
+
+    i = parseInt($('#contador').html())
   }
 }
+
 
 
 // CREAR TOAST POR PRODUCTO AGREGADO O ELIMINADO DEL CARRITO
@@ -139,17 +210,18 @@ const crearToast = (nombre, precio, texto) => {
               <p> $${precio} </p>
           </div>
           <div class="close">
-              <a>x</a>
+              <a>x cerrar</a>
           </div>
-      </div>`)
+        </div>`)
 
   $('.toastContainer').append(nuevoToast);
   setTimeout(() => {
     $(nuevoToast).remove()
-  }, 4000);
+  }, 3000);
 
   cerrarToast()
 }
+
 
 // CERRAR TOAST
 const cerrarToast = () => {
@@ -160,29 +232,36 @@ const cerrarToast = () => {
 }
 
 
+
+//MOSTRAR CARRITO
+$('.navCart').click(() => {
+  $('.carritoInner').toggleClass('hidden')
+});
+
+
 //FILTRAR POR NOMBRE
-// const filtrarNombre = () => {
-//   let searchValue = $('#navBuscar').val()
-//   let filtrados = (productos).filter((producto) => {
+const filtrarNombre = () => {
+  let searchValue = $('#navBuscar').val();
+  let searchLower = searchValue.toLowerCase();
+  let filtrados = productos.filter((producto) => {
+    let productName = producto.nombre.toLowerCase();
+    return productName.includes(searchLower);
+  })
 
-//     let productName = producto.nombre.toLowerCase()
-//     return productName.includes(searchValue.toLowerCase())
-//   })
+  if (filtrados.length > 0) {
+    mostrarProductos(filtrados)
+    agregarProductos(filtrados)
+  } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
 
-//   if (filtrados.length > 0) {
-//     mostrarProductos(filtrados)
-//     agregarProductos(filtrados)
-//   } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
+}
 
-// }
-// $('#btnBuscar').on('click', filtrarNombre)
-// $('#navBuscar').on("keyup", filtrarNombre)
-
+$('#btnBuscar').on('click', filtrarNombre)
+$('#navBuscar').on("keyup", filtrarNombre)
 
 
 //FILTRAR POR PRECIO
 const filtrarPrecio = (minimo, maximo, array) => {
-  let filtrados2 = array.filter(producto => producto.precio > minimo & producto.precio < maximo);
+  let filtrados2 = array.filter(producto => producto.precio >= minimo & producto.precio <= maximo);
   if (filtrados2.length > 0) {
     mostrarProductos(filtrados2)
     agregarProductos(filtrados2)
@@ -198,7 +277,7 @@ const filtrarPrecioValores = (array) => {
     } else if ($('.opcion3').is(':selected')) {
       filtrarPrecio(10000, 15000, array)
     } else if ($('.opcion4').is(':selected')) {
-      filtrarPrecio(15000)
+      filtrarPrecio(15000, 20000, array)
     } else {
       mostrarProductos(array)
       agregarProductos(array)
@@ -207,19 +286,118 @@ const filtrarPrecioValores = (array) => {
   })
 }
 
-//MOSTRAR CARRITO
-$('.navCart').click(() => {
-  $('.carritoInner').toggleClass('hidden')
-});
+filtrarPrecioValores(productos)
+
+
 
 //FINALIZAR COMPRA
 $('.btnComprar').click(() => {
   $('main').html('')
   $('.navSecciones').addClass('hidden')
-  $('main').append(`<p>PAGINA DE PAGO</p>`);
   $('.carritoInner').toggleClass('hidden')
-  localStorage.clear()
+
+  $('main').append(`
+  <div class="checkout">
+    <div class="checkoutResumen">
+      <div class="checkoutProductos"> </div>
+      <div class="checkoutPrecioFinal"> </div>
+    </div>
+    <div class="checkoutInfoPago"> </div>
+  </div>
+
+  `);
+
+  for (elemento of cart) {
+    $('.checkout .checkoutProductos').append(`
+    <div class="checkoutProductosCard">
+      <img src="imagenes/fotoProducto${elemento.id}.jpg" height="100px">
+      <div class="checkoutName">
+        <p> ${elemento.nombre}</p> 
+        <p >$${elemento.precio}</p>
+      </div>
+      <button class="btnCheckoutDelete">X</div>
+    </div>`)
+
+    final += elemento.precio
+  };
+
+  $('.checkout .checkoutPrecioFinal').append(`Total: $${final}`)
+
+  checkoutDelete()
+
+  $('.checkout .checkoutInfoPago').append(`
+  <div class="checkoutFormCont">
+    <div class="checkoutForm personal">
+      <p>Información personal</p>
+      <label for="nombreCliente">Nombre</label>
+      <input type="text" class="inputNombre" name="nombreCliente" value="Camila">
+      <label for="apellidoCliente">Apellido</label>
+      <input type="text" name="apellidoCliente" value="Solessio">
+      <label for="emailCliente">Email</label>
+      <input type="text" class="inputEmail" name="emailCliente" value="mimail@gmail.com">
+      <label for="telCliente">Teléfono</label>
+      <input type="numer" name="telCliente" value="11 4000 0000">
+    </div>
+    <div class="checkoutForm tarjeta">
+      <p>Datos de la Tarjeta</p>
+      <label for="numTarjeta">Tarjeta Número</label>
+      <input type="text" name="numTarjeta" value="**** **** **** 1234">
+      <label for="nombreTarjeta">Nombre Titular</label>
+      <input type="text" name="nombreTarjeta" value="Nombre Cliente">
+      <label for="codigoTarjeta">CVC</label>
+      <input type="text" name="codigoTarjeta" value="***">
+      <label for="codigoTarjeta">Vencimiento</label>
+      <input type="text" name="vencimientoTarjeta" value="10/25">
+    </div>
+    <button id="btnFin"> FINALIZAR COMPRA </button>
+  </div>`);
+
+  finCompra()
 })
+
+const checkoutDelete = () => {
+  $('.btnCheckoutDelete').click((e) => {
+
+    let card = e.currentTarget.parentElement
+    card.remove()
+
+    let price = e.currentTarget.previousElementSibling.firstElementChild.nextElementSibling.innerHTML
+    let price2 = parseInt(price.substring(1))
+
+    final -= price2
+
+    $('.checkout .checkoutPrecioFinal').empty();
+    $('.checkout .checkoutPrecioFinal').append(`Total: $${final}`)
+  })
+}
+
+
+// BOTON FINALIZAR COMPRA
+const finCompra = () => {
+  $('#btnFin').click((e) => {
+    e.preventDefault();
+    let emailCompra = $('.inputEmail').val()
+    let nombreCompra = $('.inputNombre').val()
+    $('main').html('')
+    $('main').append(`
+    <div class="mensajeFinal">
+      <div class="">Pago realizado con éxito</div>
+      <div>i${nombreCompra}, gracias por tu compra!</div>
+      <div>Se envió un mail a ${emailCompra} con la información sobre tu pedido</div>
+      <div>Pago final: $${final}</div>
+      <div>Tarjeta finalizada en **** **** **** 1234</div>
+    </div>
+    `)
+
+    $('#carritoInner').html('')
+    $('#contador').addClass('hidden')
+
+    localStorage.clear()
+
+  })
+}
+
+
 
 
 //MODO DARK
@@ -229,35 +407,7 @@ $('#btnDark').click(function () {
 });
 
 
-//-------------- tomar productos de JSON. DESAFIO 14 -----------------------------------
-$.getJSON("js/data.json", function (response, state) {
 
-  if (state === "success") {
-    let productos1 = response
-    mostrarProductos(productos1)
-    agregarProductos(productos1)
-    filtrarPrecioValores(productos1)
-
-    const filtrarNombre = () => {
-      let searchValue = $('#navBuscar').val()
-      let filtrados = productos1.filter((producto) => {
-
-        let productName = producto.nombre.toLowerCase()
-        return productName.includes(searchValue.toLowerCase())
-      })
-
-      if (filtrados.length > 0) {
-        mostrarProductos(filtrados)
-        agregarProductos(filtrados)
-      } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
-
-    }
-    $('#btnBuscar').on('click', filtrarNombre)
-    $('#navBuscar').on("keyup", filtrarNombre)
-  }
-})
-
-eliminarProductos();
 guardarCart()
 
 
@@ -265,8 +415,20 @@ guardarCart()
 
 
 
+//-------------- tomar productos de JSON. DESAFIO 14 -----------------------------------
+// $.getJSON("js/data.json", function (response, state) {
 
+//   if (state === "success") {
+//     productos1 = response
+//     mostrarProductos(productos1)
+//     agregarProductos(productos1)
+//     filtrarPrecioValores(productos1)
 
+//   }
+// })
+
+// eliminarProductos();
+// guardarCart()
 
 
 

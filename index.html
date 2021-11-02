@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
     <title>The Fit Shop</title>
 </head>
@@ -16,7 +18,7 @@
     <header>
         <div class="navContainer">
             <div class="navLogoContainer">
-                <h1 class="navLogo">THE FIT SHOP</h1>
+                <a class="navLogo" href="index.html">THE FIT SHOP</a>
                 <div class="navBuscarConfContainer">
                     <div class="navBuscarContainer">
                         <input class="navBuscar" type="text" id="navBuscar" name="" placeholder="Buscar...">
@@ -27,6 +29,7 @@
                         <li><a class="navFavoritos" href="#"><i class="fas fa-heart"></i></a></li>
                         <li><a class="navCart" href="#"><i class="fas fa-shopping-cart"></i></a></li>
                     </ul>
+                    <span id="contador" class="contador hidden">0</span>
                     <button class="btnDark active" id="btnDark">
                         <span><i class="far fa-sun"></i></span>
                         <span><i class="far fa-moon"></i></span>
@@ -40,7 +43,7 @@
                                 <p>Total: $</p>
                                 <p id="totalNumero">0</p>
                             </div>
-                            <button class="btnComprar" id="btnComprar">comprar</button>
+                            <button class="btnComprar" id="btnComprar">Comprar</button>
                         </div>
                         <div id="mensajeFinal"></div>
                     </div>
@@ -49,32 +52,56 @@
             </div>
             <div class="navSecciones" id="navSecciones">
                 <ul class="navSeccionesLista">
-                    <li><a class="navListaItems" href="#">novedades</a></li>
-                    <li><a class="navListaItems" href="#">urbano</a></li>
-                    <li><a class="navListaItems" href="#">deportes</a></li>
-                    <li><a class="navListaItems" href="#">marcas</a></li>
-                    <li><a class="navListaItems" href="#">sale</a></li>
+                    <li><a class="navListaItems" href="#">Novedades</a></li>
+                    <li><a class="navListaItems" href="#">Urbano</a></li>
+                    <li><a class="navListaItems" href="#">Deportes</a></li>
+                    <li><a class="navListaItems" href="#">Marcas</a></li>
+                    <li><a class="navListaItems" href="#">Sale</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
     <main>
-        <select id="filterSelect">
-            <option class="opcion0" value="0" selected>Buscar por precio</option>
-            <option class="opcion1" value="1">$0 - $5000</option>
-            <option class="opcion2" value="2">$5000 - $10000</option>
-            <option class="opcion3" value="3">$10000 - $15000</option>
-            <option class="opcion4" value="4">$15000 +</option>
-        </select>
 
-        <div class="productosContainer" id="productosContainer">
+        <div class="filters">
+            <h3>FILTRAR</h3>
+            <div class="filtersContainer">
+                <p>Precio</p>
+                <select id="filterSelect">
+                    <option class="opcion0" value="0" selected>Todos</option>
+                    <option class="opcion1" value="1">$0 - $5000</option>
+                    <option class="opcion2" value="2">$5000 - $10000</option>
+                    <option class="opcion3" value="3">$10000 - $15000</option>
+                    <option class="opcion4" value="4">$15000 +</option>
+                </select>
+
+                <p>Talle</p>
+                <select id="filterSelect1">
+                    <option class="opcion0" value="0" selected>Todos</option>
+                    <option class="opcion1" value="1">$0 - $5000</option>
+                    <option class="opcion2" value="2">$5000 - $10000</option>
+                    <option class="opcion3" value="3">$10000 - $15000</option>
+                    <option class="opcion4" value="4">$15000 +</option>
+                </select>
+
+                <p>Marca</p>
+                <select id="filterSelect2">
+                    <option class="opcion0" value="0" selected>Todos</option>
+                    <option class="opcion1" value="1">$0 - $5000</option>
+                    <option class="opcion2" value="2">$5000 - $10000</option>
+                    <option class="opcion3" value="3">$10000 - $15000</option>
+                    <option class="opcion4" value="4">$15000 +</option>
+                </select>
+            </div>
         </div>
 
-        <div class="toastContainer">
-        </div>
+        <div class="productosContainer" id="productosContainer"></div>
+
+        <div class="toastContainer"></div>
 
     </main>
+
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -84,7 +111,7 @@
     <script src="js/main.js"></script>
 </body>
 <footer>
-
+    <p>FOOTER</p>
 </footer>
 
 </html>

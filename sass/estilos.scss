@@ -3,12 +3,23 @@
     padding: 0;
 }
 
+$colorNav: black;
+$colorFooter: rgb(232, 232, 233);
+$colorBordes: rgb(216, 213, 213);
+$colorBtn: black;
+$colorHover: rgb(126, 76, 20);
+$colorFont: black;
+$colorFondo: white;
+$colorShadow: rgb(133, 132, 132);
+$font: 'Zen Kaku Gothic Antique', sans-serif;;
+
+
 .hidden {
     display:none
 }
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: $font;
     transition: .5s;
    
     header{
@@ -17,29 +28,38 @@ body{
         
         .navContainer {
             height: 30vh ;
+            transition: .5s;
             
             .navLogoContainer{
-                background-color: black;
+                //background-color: black;
+                background-color: $colorNav;
                 color: white;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 height: 20vh;
+
+                .navLogo{
+                    font-size: 2.2rem;
+                    text-decoration: none;
+                    color: white;
+                    margin-left: 35px;
+                }
                 
                 .navBuscarConfContainer{
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 45%;
+                    width: 50%;
                     height: 30%;
                     margin-right: 2%;
                     .navBuscarContainer{
                         height: 100%;
-                        width: 60%;
+                        width: 80%;
                         position: relative;
                         display: flex;
                         justify-content: flex-end;
-                        margin-right: 2%;
+                        margin-right: 6%;
 
                         .navBuscar{
                             height: 100%;
@@ -48,7 +68,8 @@ body{
                             border-radius: 20px;
                             padding-left: 1em;
                             font-size: 1em;
-                            font-family: 'Poppins', sans-serif;
+                            font-family: $font;
+                            
                         }
 
                         .btnBuscar{
@@ -71,7 +92,7 @@ body{
                         justify-content: space-around;
                         align-items: center;
                         list-style: none;
-                        width: 18%;
+                        width: 25%;
                         height: 100%;
                         .navCart {
                             color: white;
@@ -80,38 +101,97 @@ body{
                             font-size: 20px;
                             cursor: pointer;
                         }
+
                         a{
                             text-decoration: none;
                             color: white;
                             i{
-                                font-size: 22px;
+                                font-size: 28px;
                             }
                         }
+                    }
+                    
+                    #contador {
+                        margin-left: -12px;
+                        margin-bottom: 25px;
+                        height: 1.3em;
+                        width: 1.6em;
+                        border-radius: 50%;
+                        background-color: rgb(62, 209, 17);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        &.hidden {
+                            display:none
+                        }
+                          
                     }
                     .carritoInner{
                         position: absolute;
                         top: 14vh;
                         right: 8%;
-                        background-color: white;
-                        color: black;
-                        height: 60vh;
-                        width: 20%;
+                        background-color: $colorFondo;
+                        color: $colorFont;
+                        min-height: fit-content;
+                        max-height: 50vh;
+                        width: 30%;
                         overflow-y: scroll;
-                        border: .1px rgb(216, 213, 213) solid;
-                        
-                        
+                        border: .1px $colorBordes solid;
+                        padding: 1%;
+
 
                         #elegidos{
                             .btnQuitar{
                                 cursor: pointer;
-                                background-color: red;
+                                background-color: black;
                                 color: white;
+                                height: 5%;
+                                width: 5%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
                             }
 
-                            
+                            .seleccionados {
+                                display: flex;
+                                justify-content: space-between;
+                                width: 100%;
+                                margin-bottom: 10px;
+                                border: solid 1px $colorBordes;
+
+                                .nombreSeleccionados{
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+
+                                    .precioSeleccionados{
+                                    display: flex;
+                                    }
+                                }
+                            }
                         }
-                        #totalContainer{
+
+                        #comprar{
                             display: flex;
+                            flex-direction: column;
+                            align-items: flex-end;
+                            margin-right: 2%;
+
+                            #btnComprar{
+                                background-color: black;
+                                color: white;
+                                border: none;
+                                width: 7em;
+                                height: 2em;
+                                font-family: $font;
+                                cursor: pointer;
+                            }
+
+                            #totalContainer{
+                                display: flex;
+                                flex-direction: row;
+                            }
                         }
                     }
 
@@ -124,10 +204,11 @@ body{
                         cursor: pointer;
                         background: none;
                         margin-left: 6%;
+                        margin-right: 5%;
                         height: 100%;
                         
                         span{
-                            font-size: 22px;
+                            font-size: 25px;
                             color: white;
                         }
 
@@ -154,7 +235,7 @@ body{
                 justify-content: center;
                 align-items: center;
                 background-color: white;
-                box-shadow: 0px 0px 10px rgb(133, 132, 132);
+                box-shadow: 0px 0px 10px $colorShadow;
                 transition: .5s;
                 &.hidden {
                     display: none;
@@ -166,11 +247,13 @@ body{
                     align-items: center;
                     width: 50%;
                     list-style: none;
+
     
                     a{
                         text-decoration: none;
                         color: black;
                         transition: .5s;
+                        font-size: 1.1em;
                     }
                 }
             }
@@ -179,54 +262,265 @@ body{
 
     main{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        height: fit-content;
+        justify-content: space-around;
         width: 100%;
+
+        .confirm {
+            position: fixed;
+            top: 25vh;
+            right:11rem;
+            background-color: $colorFondo;
+            border: $colorBordes solid 1px;
+            height: 10rem;
+            width: 15rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1%;
+
+            :nth-child(2){
+                font-weight: bold;
+            }
+
+            .btnConfirm {
+                
+                width: 60%;
+                display: flex;
+                justify-content: space-between;
+                
+
+                button {
+                    background-color: black;
+                    color: white;
+                    border: none;
+                    width: 5em;
+                    height: 2em;
+                    font-family: $font;
+                    cursor: pointer;
+                    
+                }
+            }
+
+           
+        }
+
+        .filters{
+            height: 65vh;
+            margin-top: 10vh;
+            margin-left: 1%;
+            width: 16%;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: start;
+            position: sticky;
+            top: 70px;
+
+
+            h3{
+                border-bottom: solid 1px $colorBordes;
+                font-size: 1.3em;
+                padding-bottom: 15px;
+            }
+
+            .filtersContainer{
+
+                select{
+                    width: 90%;
+                    height: 2.2em;
+                    margin-top: 10px;
+                    font-family: $font;
+                    font-size: 0.9em;
+                }
+
+                p{
+                    font-size: 1.1em;
+                    margin-top: 2em;
+                   
+                }
+            }
+        }
         
         .productosContainer {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             margin-top: 10vh;
-            width: 80%;
-            column-gap: 10%;
+            width: 70%;
+            column-gap: 2%;
+            
             
             .productos{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 margin-bottom: 20%;
-                
+                //margin-right: 10%;
+
                 img{
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;}
+                    object-fit: cover;
+                }
 
-                h3{
-                    height: 30%;}
+                .prodNombreCont{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    width: 95%;
+                    margin-top: 10px;
 
-                #btnAgregar{
-                    transition: .5s;}
+                    h3{
+                        font-size: 1.08em;
+                        margin-bottom: 10px;
+                    }
+                    
+                    p{
+                        font-size: 1em;
+                        margin-right: 10px;
+                    }
+                }
+
+                .btnAgregar{
+                    transition: .5s;
+                    margin-top: 10px;
+                    background-color: white;
+                    color: black;
+                    width: 95%;
+                    text-align: start;
+                    height: 3em;
+                    font-size: 1em;
+                    border: none;
+                    cursor: pointer;
+                }
+                
             }
         }
         
         .toastContainer{
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
+            top: 9em;
+            right: 1.5em;
+            
             .toastBox{
                 display: flex;
+                flex-direction: column;
                 justify-content: space-between;
-                margin-bottom: 1rem;
-                border: solid .5px gainsboro;
-                background-color: white;
-                width: 20rem;
-                height: 5rem;
+                border: solid .5px $colorBordes;
+                background-color: $colorFondo;
+                width: 20em;
+                height: 6.5em;
+                padding: 3%;
+                margin-bottom: 2%;
+                
                 .close{
                     cursor:pointer;
+                    background-color: none;
+                    color: black;
+                    width: 3em;
+                    height: 1.2em;
+                    display: flex;
+                    flex-direction: row;
+                    //justify-content: ;
+                    align-items: center;
+                    width: 100%;
+
+                    a{
+                        border-bottom: solid black .5px;
+                        margin-bottom: 5%;
+                        font-weight: bold;
+                        
+                    }
                 }
             }
         }
+
+        .checkout {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            
+
+            .checkoutResumen {
+                width: 40%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                padding-top: 5%;
+
+                .checkoutProductos{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    .checkoutProductosCard {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 2%;
+                        border: solid 1px $colorBordes;
+                    }
+                }
+            }
+
+            .checkoutInfoPago{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 50%;
+                height: 100vh;
+
+                .checkoutFormCont{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100%;
+                    width: 70%;
+                    
+                    .checkoutForm{
+                        height: 100%;
+                        width: 100%;
+                        margin-bottom: 5%;
+
+                        p{
+                            margin-bottom: 5%;
+                            font-weight: bold;
+                        }
+
+                        input{
+                            width: 100%;
+                            height: 2em;
+                            margin-bottom: 2%;
+                            font-family: $font;
+                            font-size: 1em;
+                            color: gray;
+                        }
+                    }
+
+                    #btnFin{
+                        background-color: black;
+                        color: white;
+                        border: none;
+                        width: 12em;
+                        height: 6em;
+                        font-family: $font;
+                        cursor: pointer;
+                    }
+
+                }
+            }
+        }
+
+        .mensajeFinal{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 25vh;
+
+        }
     }
+
+    
 
 
     //--------------- clase dark -----------------------------//
@@ -236,6 +530,7 @@ body{
         color: white;
         header{
             .navContainer{
+                background-color: rgb(36, 35, 35) ;
                 .navSecciones{
                     background-color: rgb(36, 35, 35);
                     box-shadow: 0px 0px 10px black;
@@ -259,4 +554,9 @@ body{
             }
         }
     }
+}
+footer{
+    background-color: $colorFooter;
+    height: 50vh;
+    margin-top: 15vh;
 }
