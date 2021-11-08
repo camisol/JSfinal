@@ -34,6 +34,8 @@ body header .navContainer .navLogoContainer .navBuscarConfContainer #contador.hi
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner { position: absolute; top: 14vh; right: 8%; background-color: white; color: black; min-height: -webkit-fit-content; min-height: -moz-fit-content; min-height: fit-content; max-height: 50vh; width: 30%; overflow-y: scroll; border: 0.1px #d8d5d5 solid; padding: 1%; }
 
+body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #cartEmpty { margin-top: 5vh; margin-bottom: 10vh; }
+
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .btnQuitar { cursor: pointer; background-color: black; color: white; height: 5%; width: 5%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .seleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; margin-bottom: 10px; border: solid 1px #d8d5d5; }
@@ -43,6 +45,8 @@ body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInne
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .seleccionados .nombreSeleccionados .precioSeleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; }
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; margin-right: 2%; }
+
+body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar.hidden { display: none; }
 
 body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar #btnComprar { background-color: black; color: white; border: none; width: 7em; height: 2em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
 
@@ -116,6 +120,8 @@ body main .checkout .checkoutResumen .checkoutProductos { display: -webkit-box; 
 
 body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 2%; border: solid 1px #d8d5d5; }
 
+body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard button { background-color: black; color: white; }
+
 body main .checkout .checkoutInfoPago { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 50%; height: 100vh; }
 
 body main .checkout .checkoutInfoPago .checkoutFormCont { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 100%; width: 70%; }
@@ -160,5 +166,15 @@ body.dark main .checkoutForm input { background-color: #242323; color: gray; bor
 
 body.dark footer { background-color: black; }
 
-footer { background-color: #e8e8e9; height: 50vh; margin-top: 15vh; }
+body.dark footer a { color: white; }
+
+footer { background-color: #e8e8e9; height: 50vh; margin-top: 15vh; display: -webkit-box; display: -ms-flexbox; display: flex; padding: 20px; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-family: "Zen Kaku Gothic Antique", sans-serif; }
+
+footer ul { list-style: none; height: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+
+footer ul .footerTitulos { font-weight: bold; font-size: 18px; }
+
+footer .redes { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; width: 10%; font-size: 25px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+footer .redes a { color: black; }
 /*# sourceMappingURL=estilos.css.map */

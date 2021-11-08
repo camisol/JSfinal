@@ -35,7 +35,7 @@ const mostrarProductos = (array) => {
   }
 }
 
-mostrarProductos(productos)
+//mostrarProductos(productos)
 
 
 
@@ -71,7 +71,7 @@ const agregarProductos = (array) => {
   })
 }
 
-agregarProductos(productos)
+//agregarProductos(productos)
 
 const eliminarConfirm = (productName) => {
 
@@ -94,7 +94,7 @@ const eliminarProductos = () => {
   $('.carritoInner #elegidos').on('click', '.btnQuitar', (e) => {
 
     let nombre = e.target.previousElementSibling.firstElementChild.innerHTML;
-    let precio = e.target.previousElementSibling.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.innerHTML;
+    let precio = e.target.previousElementSibling.lastElementChild.lastElementChild.innerHTML;
 
     eliminarConfirm(nombre)
 
@@ -133,7 +133,7 @@ const eliminarProductos = () => {
   })
 }
 
-eliminarProductos()
+//eliminarProductos()
 
 
 // contador de productos en carrito
@@ -147,6 +147,7 @@ const contadorCart = () => {
   if ($('#contador').html() == 0) {
     $('#contador').addClass('hidden')
   }
+
 }
 
 
@@ -191,6 +192,7 @@ const guardarCart = () => {
 
     if ($('#contador').html() == 0) {
       $('#contador').addClass('hidden')
+
     }
 
     i = parseInt($('#contador').html())
@@ -231,7 +233,6 @@ const cerrarToast = () => {
 }
 
 
-
 //MOSTRAR CARRITO
 $('.navCart').click(() => {
   $('.carritoInner').toggleClass('hidden')
@@ -242,7 +243,7 @@ $('.navCart').click(() => {
 const filtrarNombre = () => {
   let searchValue = $('#navBuscar').val();
   let searchLower = searchValue.toLowerCase();
-  let filtrados = productos.filter((producto) => {
+  let filtrados = productos1.filter((producto) => {
     let productName = producto.nombre.toLowerCase();
     return productName.includes(searchLower);
   })
@@ -267,7 +268,7 @@ const filtrarPrecio = (minimo, maximo, array) => {
   } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
 }
 
-const filtrarPrecioValores = (array) => {
+const filtrarPrecioSelect = (array) => {
   $('#filterSelect').change(() => {
     if ($('.opcion1').is(':selected')) {
       filtrarPrecio(0, 5000, array)
@@ -285,9 +286,37 @@ const filtrarPrecioValores = (array) => {
   })
 }
 
-filtrarPrecioValores(productos)
+//filtrarPrecioValores(productos)
+
+//FILTRAR POR COLOR
+
+const filtrarColor = (color, array) => {
+  let filtrados3 = array.filter(producto => producto.color == color);
+  if (filtrados3.length > 0) {
+    mostrarProductos(filtrados3)
+    agregarProductos(filtrados3)
+  } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
+
+}
 
 
+const filtrarColorSelect = (array) => {
+  $('#filterSelect1').change(() => {
+    if ($('.opcion1').is(':selected')) {
+      filtrarColor('blanco', array)
+    } else if ($('.opcion2').is(':selected')) {
+      filtrarColor('negro', array)
+    } else if ($('.opcion3').is(':selected')) {
+      filtrarColor('gris', array)
+    } else if ($('.opcion4').is(':selected')) {
+      filtrarColor('color', array)
+    } else {
+      mostrarProductos(array)
+      agregarProductos(array)
+
+    }
+  })
+}
 
 //FINALIZAR COMPRA
 $('.btnComprar').click(() => {
@@ -303,7 +332,6 @@ $('.btnComprar').click(() => {
     </div>
     <div class="checkoutInfoPago"> </div>
   </div>
-
   `);
 
   for (elemento of cart) {
@@ -360,7 +388,7 @@ const checkoutDelete = () => {
     let card = e.currentTarget.parentElement
     card.remove()
 
-    let price = e.currentTarget.previousElementSibling.firstElementChild.nextElementSibling.innerHTML
+    let price = e.currentTarget.previousElementSibling.lastElementChild.innerHTML
     let price2 = parseInt(price.substring(1))
 
     final -= price2
@@ -405,7 +433,7 @@ $('#btnDark').click(function () {
 
 
 
-guardarCart()
+//guardarCart()
 
 
 
@@ -413,19 +441,21 @@ guardarCart()
 
 
 //-------------- tomar productos de JSON. DESAFIO 14 -----------------------------------
-// $.getJSON("js/data.json", function (response, state) {
+$.getJSON("js/data.json", function (response, state) {
 
-//   if (state === "success") {
-//     productos1 = response
-//     mostrarProductos(productos1)
-//     agregarProductos(productos1)
-//     filtrarPrecioValores(productos1)
+  if (state === "success") {
+    productos1 = response
+    mostrarProductos(productos1)
+    agregarProductos(productos1)
+    filtrarPrecioSelect(productos1)
+    filtrarColorSelect(productos1)
 
-//   }
-// })
 
-// eliminarProductos();
-// guardarCart()
+  }
+})
+
+eliminarProductos();
+guardarCart()
 
 
 
