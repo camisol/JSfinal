@@ -150,7 +150,6 @@ const contadorCart = () => {
 }
 
 
-
 // crear card de producto seleccionado en carrito
 const cardSelected = (prod) => {
   $('.carritoInner #elegidos').append(`
@@ -396,8 +395,6 @@ const finCompra = () => {
 
   })
 }
-
-
 
 
 //MODO DARK

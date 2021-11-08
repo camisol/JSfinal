@@ -138,7 +138,27 @@ body.dark header .navContainer .navSecciones { background-color: #242323; -webki
 
 body.dark header .navContainer .navSecciones .navSeccionesLista a { color: white; }
 
-body.dark main .productosContainer .productos #btnAgregar { background-color: #969595; }
+body.dark header .carritoInner { background-color: #242323 !important; }
+
+body.dark header .carritoInner #elegidos { background-color: #242323; color: white; }
+
+body.dark header .carritoInner #elegidos .btnQuitar { color: red; }
+
+body.dark header .carritoInner #comprar #totalContainer { color: white; }
+
+body.dark main .productosContainer .productos .btnAgregar { background-color: #242323; color: white; }
+
+body.dark main .filtersContainer select { background-color: #242323; color: white; }
+
+body.dark main .toastContainer .toastBox { background-color: #242323; color: white; }
+
+body.dark main .toastContainer .toastBox .close a { color: white; border: white; }
+
+body.dark main .checkoutForm p { color: white; }
+
+body.dark main .checkoutForm input { background-color: #242323; color: gray; border: solid 1px #d8d5d5; }
+
+body.dark footer { background-color: black; }
 
 footer { background-color: #e8e8e9; height: 50vh; margin-top: 15vh; }
 /*# sourceMappingURL=estilos.css.map */

@@ -284,12 +284,10 @@ body{
             }
 
             .btnConfirm {
-                
                 width: 60%;
                 display: flex;
                 justify-content: space-between;
                 
-
                 button {
                     background-color: black;
                     color: white;
@@ -528,6 +526,7 @@ body{
     &.dark {
         background-color: rgb(36, 35, 35);
         color: white;
+
         header{
             .navContainer{
                 background-color: rgb(36, 35, 35) ;
@@ -542,21 +541,87 @@ body{
                     }
                 }
             }
+
+            .carritoInner{
+
+                background-color: rgb(36, 35, 35)  !important;
+
+                #elegidos{
+                    
+                    background-color: rgb(36, 35, 35);
+                    
+                    color: white;
+                    .btnQuitar{
+                        color: red;
+                     
+                    }
+
+                }
+
+                #comprar{
+                    #totalContainer{
+                        color: white;
+                    }
+                }
+            }
         }
 
         main {
             .productosContainer{
                 .productos{
-                    #btnAgregar{
-                        background-color: rgb(150, 149, 149);
+                    .btnAgregar{
+                        background-color: rgb(36, 35, 35);
+                        color: white;
                     }
                 }
             }
+
+            .filtersContainer{
+
+                select{
+                    background-color: rgb(36, 35, 35);
+                    color: white;
+                }
+            }
+
+            .toastContainer{
+                .toastBox{
+                    background-color: rgb(36, 35, 35);
+                    color: white;
+                    .close{
+                        a{
+                           color: white;
+                           border: white;
+                            
+                        }
+                    }
+                }
+            }
+
+            .checkoutForm{
+                
+                p{
+                    color: white;
+                }
+
+                input{
+                    background-color:rgb(36, 35, 35);
+                    color: gray;
+                    border: solid 1px $colorBordes;
+                }
+            }
+        }
+        footer{
+            background-color: black;
+            
         }
     }
 }
+
+
 footer{
     background-color: $colorFooter;
     height: 50vh;
     margin-top: 15vh;
 }
+
