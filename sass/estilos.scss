@@ -116,7 +116,7 @@ body{
 }
 
 
-@media only screen and (min-width: 400px) and (max-width: 991px){
+@media only screen and (min-width: 350px) and (max-width: 991px){
 
 body {
     header{
@@ -193,7 +193,6 @@ body {
 
                         .navCartContainer{
                             height: 28px;
-                            //margin-left: 20%;
 
                             .navCart {
                                 color: white;
@@ -230,6 +229,7 @@ body {
                     cursor: pointer;
                     background: none;
                     height: 100%;
+                    margin-left: 30px;
                     
                     span{
                         font-size: 2em;
@@ -376,12 +376,14 @@ body {
         }
 
         .filters{
-            width: 95%;
+            width: 90%;
             margin-top: 5vh;
             padding-left: 2%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            
 
             h3{
                 font-size: 1.3em;
@@ -551,7 +553,7 @@ body {
                 align-items: center;
                 width: 100%;
                 height: fit-content;
-                font-size: 1.2em;
+                font-family: $font;
 
                 .checkoutFormCont{
                     display: flex;
@@ -585,7 +587,7 @@ body {
                         color: white;
                         border: none;
                         width: 12em;
-                        height: 6em;
+                        height: 3em;
                         font-family: $font;
                         cursor: pointer;
                     }
@@ -614,7 +616,7 @@ body {
         justify-content: space-between;
         align-items: center;
         font-family: $font;
-        padding: 5% 15% 15% 15%;
+        padding: 5% 10% 15% 10%;
 
         ul{
             flex-direction: column;
@@ -631,7 +633,7 @@ body {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            min-width: 25%;
+            min-width: 100px;
             font-size: 1.5em;
             align-items: center;
             
@@ -648,7 +650,6 @@ body {
 body{
     header{
         .navContainer {
-            //height: 30vh ;
             transition: .5s;
             
             .navLogoContainer{
@@ -660,10 +661,10 @@ body{
                 height: 20vh;
 
                 .navLogo{
-                    font-size: 2.2rem;
+                    font-size: 2.2em;
                     text-decoration: none;
                     color: white;
-                    margin-left: 35px;
+                    margin-left: 4%;
                 }
                 
                 .navBuscarConfContainer{
@@ -689,7 +690,6 @@ body{
                             padding-left: 1em;
                             font-size: 1em;
                             font-family: $font;
-                            
                         }
 
                         .btnBuscar{
@@ -698,7 +698,7 @@ body{
                             align-items: center;
                             position: absolute;
                             color: black;
-                            font-size: 20px;
+                            font-size: 1.2em;
                             height: 100%;
                             width: 2em;
                             z-index: 1;
@@ -731,7 +731,7 @@ body{
                                 color: white;
                                 background: none;
                                 border: none;
-                                font-size: 28px;
+                                font-size: 1.7em;
                                 cursor: pointer;
                             }
                             
@@ -848,7 +848,7 @@ body{
                         height: 100%;
                         
                         span{
-                            font-size: 25px;
+                            font-size: 1.7em;
                             color: white;
                         }
 
@@ -942,7 +942,6 @@ body{
                 p{
                     font-size: 1.1em;
                     margin-top: 2em;
-                   
                 }
             }
         }
@@ -960,7 +959,6 @@ body{
                 flex-direction: column;
                 align-items: center;
                 margin-bottom: 20%;
-                //margin-right: 10%;
 
                 img{
                     width: 100%;
@@ -998,7 +996,6 @@ body{
                     border: none;
                     cursor: pointer;
                 }
-                
             }
         }
         
@@ -1034,7 +1031,6 @@ body{
                         border-bottom: solid black .5px;
                         margin-bottom: 5%;
                         font-weight: bold;
-                        
                     }
                 }
             }
@@ -1044,7 +1040,6 @@ body{
             display: flex;
             justify-content: space-between;
             width: 80%;
-            
 
             .checkoutResumen {
                 width: 40%;
@@ -1053,7 +1048,6 @@ body{
                 align-items: flex-end;
                 padding-top: 15%;
                 
-
                 .checkoutProductos{
                     display: flex;
                     flex-direction: column;
@@ -1141,7 +1135,6 @@ footer{
     height: 50vh;
     margin-top: 15vh;
     display: flex;
-    padding: 20px;
     justify-content: space-around;
     align-items: center;
     font-family: $font;
@@ -1152,14 +1145,12 @@ footer{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-       
 
         .footerTitulos{
             font-weight: bold;
             font-size: 18px;
         }
     }
-
 
     .redes{
         flex-direction: row;
