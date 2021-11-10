@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    
+
 }
 
 $colorNav: black;
@@ -21,13 +21,13 @@ $font: 'Zen Kaku Gothic Antique', sans-serif;;
 
 body{
     font-family: $font;
+    font-size: 16px;
     transition: .5s;
 
     header{
         background-color: #ffffff;
         width: 100%;
     }
-
 
     &.dark {
         background-color: rgb(36, 35, 35);
@@ -36,30 +36,15 @@ body{
         header{
             .navContainer{
                 background-color: rgb(36, 35, 35) ;
-                .navSecciones{
-                    background-color: rgb(36, 35, 35);
-                    box-shadow: 0px 0px 10px black;
-
-                    .navSeccionesLista{
-                        a{
-                            color: white;
-                        }
-                    }
-                }
             }
 
             .carritoInner{
-
                 background-color: rgb(36, 35, 35)  !important;
+                border: solid 1px rgb(94, 94, 94);
 
                 #elegidos{
-                    
                     background-color: rgb(36, 35, 35);
-                    
                     color: white;
-                    .btnQuitar{
-                        color: red;
-                    }
                 }
 
                 #comprar{
@@ -75,6 +60,7 @@ body{
             .confirm{
                 background-color: rgb(36, 35, 35);
             }
+
             .productosContainer{
                 .productos{
                     .btnAgregar{
@@ -85,7 +71,6 @@ body{
             }
 
             .filtersContainer{
-
                 select{
                     background-color: rgb(36, 35, 35);
                     color: white;
@@ -121,6 +106,7 @@ body{
                 }
             }
         }
+
         footer{
             background-color: black;
             a{color: white;}
@@ -130,12 +116,11 @@ body{
 }
 
 
-@media only screen and (max-width: 768px){
+@media only screen and (min-width: 400px) and (max-width: 991px){
 
 body {
     header{
         .navContainer {
-            //height: 30vh ;
             transition: .5s;
             
             .navLogoContainer{
@@ -148,11 +133,11 @@ body {
                 height: 30vh;
 
                 .navLogo{
-                    font-size: 2.2rem;
+                    font-size: 2.5em;
                     text-decoration: none;
                     color: white;
                     margin-top: 1em;
-                    margin-bottom: 1em;
+                    margin-bottom: .5em;
                 }
                 
                 .navBuscarConfContainer{
@@ -173,11 +158,10 @@ body {
                             min-height: 100%;
                             width: 100%;
                             border: none;
-                            border-radius: 20px;
+                            border-radius: 25px;
                             padding-left: 1em;
                             font-size: 1em;
                             font-family: $font;
-                          
                         }
 
                          .btnBuscar{
@@ -185,10 +169,10 @@ body {
                             justify-content: center;
                             align-items: center;
                             position: absolute;
-                            left: 51%;
-                            top: 19%;
+                            left: 52%;
+                            top: 18.5%;
                             color: black;
-                            font-size: 22px;
+                            font-size: 1.5em;
                             z-index: 1;
                             cursor: pointer;
                         }
@@ -196,28 +180,26 @@ body {
 
                     .navConfigUsuario{
                         display: flex;
-                        justify-content: space-around;
+                        justify-content: flex-end;
                         align-items: center;
                         list-style: none;
-                        width: 25%;
                         height: 100%;
+                        margin-right: -80px;
 
                         a{
                             text-decoration: none;
                             color: white;
-                            i{
-                                font-size: 28px;
-                            }
                         }
 
                         .navCartContainer{
                             height: 28px;
+                            //margin-left: 20%;
 
                             .navCart {
                                 color: white;
                                 background: none;
                                 border: none;
-                                font-size: 28px;
+                                font-size: 2em;
                                 cursor: pointer;
                             }
                                 
@@ -226,7 +208,6 @@ body {
                                 z-index: 1;
                                 margin-top: -40px;
                                 margin-left: 25px;
-
                                 height: 1.3em;
                                 width: 1.3em;
                                 border-radius: 50%;
@@ -250,9 +231,8 @@ body {
                     background: none;
                     height: 100%;
                     
-                    
                     span{
-                        font-size: 25px;
+                        font-size: 2em;
                         color: white;
                     }
 
@@ -282,14 +262,12 @@ body {
                     min-width: 50%;
                     overflow-y: scroll;
                     border: .1px $colorBordes solid;
-                    padding: 1%;
+                    padding: 2%;
                         
-
                     #cartEmpty{
                         margin-top: 5vh;
                         margin-bottom: 10vh;
                     }
-
 
                     #elegidos{
                         .btnQuitar{
@@ -336,8 +314,8 @@ body {
                             background-color: black;
                             color: white;
                             border: none;
-                            width: 7em;
-                            height: 2em;
+                            width: 8em;
+                            height: 2.5em;
                             font-family: $font;
                             cursor: pointer;
                         }
@@ -352,8 +330,6 @@ body {
                 .carritoInner::-webkit-scrollbar {
                     display: none;
                 }
-
-                    
         }
     }
 
@@ -367,11 +343,11 @@ body {
         .confirm {
             position: fixed;
             top: 30vh;
-            right:5rem;
+            right:10%;
             background-color: $colorFondo;
             border: $colorBordes solid 1px;
-            height: 10rem;
-            width: 15rem;
+            height: 10em;
+            width: 15em;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -406,32 +382,39 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
 
             h3{
-                //border-bottom: solid 1px $colorBordes;
                 font-size: 1.3em;
-                padding-top: 5px;
+                padding-left: 5%;
             }
 
             .filtersContainer{
                 display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: center;
                 width: 80%;
 
-                select{
-                    width: 70%;
-                    height: 2.2em;
-                    margin-top: 10px;
-                    margin-right: 2% ;
-                    font-family: $font;
-                    font-size: 0.9em;
-                }
+                div{
+                    min-width: 270px;
+                    display: flex;
+                    flex-direction: row;
+                    
+                    select{
+                        min-width: 180px;
+                        height: 2.2em;
+                        margin-top: 3%;
+                        font-family: $font;
+                        font-size: 0.9em;
+                    }
 
-                p{
-                    font-size: 1.1em;
-                    margin-top: .5em;
-                    margin-right: .5em;
-                   
+                    p{
+                        min-width: 60px;
+                        font-size: 1.1em;
+                        margin-top: .5em;
+                        margin-right: .5em;
+                    }
                 }
             }
         }
@@ -460,39 +443,37 @@ body {
                     justify-content: space-between;
                     align-items: flex-start;
                     width: 95%;
-                    margin-top: 10px;
+                    margin-top: 1em;
 
                     h3{
-                        font-size: 1.08em;
-                        margin-bottom: 10px;
+                        margin-bottom: 3%;
                     }
                     
                     p{
-                        font-size: 1em;
-                        margin-right: 10px;
+                        font-size: 1.2em;
+                        margin-right: 2%;
                     }
                 }
 
                 .btnAgregar{
                     transition: .5s;
-                    margin-top: 10px;
+                    margin-top: 3%;
                     background-color: white;
                     color: black;
                     width: 95%;
                     text-align: start;
                     height: 3em;
-                    font-size: 1em;
+                    font-size: 1.1em;
                     border: none;
                     cursor: pointer;
                 }
-                
             }
         }
         
         .toastContainer{
             position: fixed;
-            top: 12em;
-            right: 1.5em;
+            top: 30vh;
+            right: 3%;
             
             .toastBox{
                 display: flex;
@@ -513,7 +494,6 @@ body {
                     height: 1.2em;
                     display: flex;
                     flex-direction: row;
-                    //justify-content: ;
                     align-items: center;
                     width: 100%;
 
@@ -521,7 +501,6 @@ body {
                         border-bottom: solid black .5px;
                         margin-bottom: 5%;
                         font-weight: bold;
-                        
                     }
                 }
             }
@@ -531,21 +510,22 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 70%;
+            width: 80%;
 
             .checkoutResumen {
                 width: 100%;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-end;
+                align-items: center;
                 padding-top: 5%;
                 padding-bottom: 15%;
-                
 
                 .checkoutProductos{
                     display: flex;
                     flex-direction: column;
                     width: 100%;
+                    align-items: center;
+                    justify-content: center;
 
                     .checkoutProductosCard {
                         display: flex;
@@ -553,11 +533,13 @@ body {
                         align-items: center;
                         margin-bottom: 2%;
                         border: solid 1px $colorBordes;
+                        min-width: 300px;
+                        width: 90%;
+                        max-width: 400px;
 
                         button{
                             background-color: black;
                             color: white;
-                            
                         }
                     }
                 }
@@ -568,7 +550,8 @@ body {
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
-                height: 100vh;
+                height: fit-content;
+                font-size: 1.2em;
 
                 .checkoutFormCont{
                     display: flex;
@@ -606,7 +589,6 @@ body {
                         font-family: $font;
                         cursor: pointer;
                     }
-
                 }
             }
         }
@@ -620,29 +602,28 @@ body {
             height: 25vh;
             width: 80%;
             margin-top: 10%;
-
         }
     }
-
 
     footer{
         background-color: $colorFooter;
         height: fit-content;
         margin-top: 15vh;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        flex-wrap: wrap;
+        justify-content: space-between;
         align-items: center;
         font-family: $font;
-        padding: 5% 0 15% 0;
+        padding: 5% 15% 15% 15%;
 
         ul{
             flex-direction: column;
             margin-top: 10%;
             list-style: none;
+           
             .footerTitulos{
                 font-weight: bold;
-                font-size: 18px;
+                font-size: 1.2em;
             }
         }
 
@@ -650,8 +631,8 @@ body {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            min-width: 30%;
-            font-size: 25px;
+            min-width: 25%;
+            font-size: 1.5em;
             align-items: center;
             
             a{
@@ -663,542 +644,7 @@ body {
 }
 
 
-@media only screen and (min-width: 769px) and (max-width: 991px){
-
-
-    body {
-        header{
-            .navContainer {
-                
-                .navLogoContainer{
-                    background-color: $colorNav;
-                    color: white;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    height: 20vh;
-                    margin-bottom: 5%;
-                    
-    
-                    .navLogo{
-                        font-size: 2.2rem;
-                        text-decoration: none;
-                        color: white;
-                        margin-left: 35px;
-                    }
-                    
-                    .navBuscarConfContainer{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 50%;
-                        height: 30%;
-                        margin-right: 2%;
-                        
-                        .navBuscarContainer{
-                            height: 100%;
-                            width: 80%;
-                            position: relative;
-                            display: flex;
-                            justify-content: flex-end;
-                            margin-right: 6%;
-    
-                            .navBuscar{
-                                height: 100%;
-                                width: 100%;
-                                border: none;
-                                border-radius: 20px;
-                                padding-left: 1em;
-                                font-size: 1em;
-                                font-family: $font;
-                            }
-    
-                            .btnBuscar{
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-                                position: absolute;
-                                color: black;
-                                font-size: 20px;
-                                height: 100%;
-                                width: 2em;
-                                z-index: 1;
-                                border-radius: 20px;
-                                cursor: pointer;
-                            }
-                        }
-    
-                        .navConfigUsuario{
-                            display: flex;
-                            justify-content: space-around;
-                            align-items: center;
-                            list-style: none;
-                            width: 20%;
-                            height: 100%;
-    
-                            a{
-                                text-decoration: none;
-                                color: white;
-                                i{
-                                    font-size: 28px;
-                                }
-                            }
-    
-                            .navCartContainer{
-                                height: 28px;
-        
-                                .navCart {
-                                    color: white;
-                                    background: none;
-                                    border: none;
-                                    font-size: 28px;
-                                    cursor: pointer;
-                                }
-                                
-                               #contador {
-                                    position: absolute;
-                                    z-index: 1;
-                                    margin-top: -40px;
-                                    margin-left: 25px;
-        
-                                    height: 1.3em;
-                                    width: 1.3em;
-                                    border-radius: 50%;
-                                    background-color: rgb(62, 209, 17);
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-            
-                                    &.hidden {
-                                        display:none
-                                    }
-                                }
-                            }
-    
-                        }
-
-                        .carritoInner{
-                            position: absolute;
-                            top: 15vh;
-                            right: 8%;
-                            background-color: $colorFondo;
-                            color: $colorFont;
-                            min-height: fit-content;
-                            max-height: 50vh;
-                            width: 50%;
-                            overflow-y: scroll;
-                            border: .1px $colorBordes solid;
-                            padding: 1%;
-                            
-    
-                            #cartEmpty{
-                                margin-top: 5vh;
-                                margin-bottom: 10vh;
-                            }
-    
-    
-                            #elegidos{
-                                .btnQuitar{
-                                    cursor: pointer;
-                                    background-color: black;
-                                    color: white;
-                                    height: 5%;
-                                    width: 5%;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                }
-    
-                                .seleccionados {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    width: 100%;
-                                    margin-bottom: 10px;
-                                    border: solid 1px $colorBordes;
-    
-                                    .nombreSeleccionados{
-                                        display: flex;
-                                        flex-direction: column;
-                                        justify-content: center;
-    
-                                        .precioSeleccionados{
-                                        display: flex;
-                                        }
-                                    }
-                                }
-                            }
-    
-                            #comprar{
-                                display: flex;
-                                flex-direction: column;
-                                align-items: flex-end;
-                                margin-right: 2%;
-    
-                                &.hidden{
-                                    display: none;
-                                }
-    
-                                #btnComprar{
-                                    background-color: black;
-                                    color: white;
-                                    border: none;
-                                    width: 7em;
-                                    height: 2em;
-                                    font-family: $font;
-                                    cursor: pointer;
-                                }
-    
-                                #totalContainer{
-                                    display: flex;
-                                    flex-direction: row;
-                                }
-                            }
-                        }
-    
-                        .carritoInner::-webkit-scrollbar {
-                            display: none;
-                          }
-    
-                        .btnDark {
-                            border: none;
-                            cursor: pointer;
-                            background: none;
-                            margin-left: 5%;
-                            margin-right: 2%;
-                            height: 100%;
-                            
-                            span{
-                                font-size: 25px;
-                                color: white;
-                            }
-    
-                            .fa-moon {
-                                display: none;
-                            }
-                            
-                            &.active {
-                                .fa-moon{
-                                    display: block;
-                                }
-                                .fa-sun{
-                                    display: none;
-                                }
-                            }
-                        }
-                    }
-                }
-    
-    
-                
-            }
-        }
-    
-        main{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            width: 100%;
-    
-            .confirm {
-                position: fixed;
-                top: 25vh;
-                right:11rem;
-                background-color: $colorFondo;
-                border: $colorBordes solid 1px;
-                height: 10rem;
-                width: 15rem;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                padding: 1%;
-    
-                :nth-child(2){
-                    font-weight: bold;
-                }
-    
-                .btnConfirm {
-                    width: 60%;
-                    display: flex;
-                    justify-content: space-between;
-                    
-                    button {
-                        background-color: black;
-                        color: white;
-                        border: none;
-                        width: 5em;
-                        height: 2em;
-                        font-family: $font;
-                        cursor: pointer;
-                    }
-                }
-            }
-    
-            .filters{
-                width: 95%;
-               
-                padding-left: 2%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                
-    
-                h3{
-                    //border-bottom: solid 1px $colorBordes;
-                    font-size: 1.3em;
-                    padding-top: 5px;
-                }
-    
-                .filtersContainer{
-                    display: flex;
-                    width: 80%;
-    
-                    select{
-                        width: 70%;
-                        height: 2.2em;
-                        margin-top: 10px;
-                        margin-right: 2% ;
-                        font-family: $font;
-                        font-size: 0.9em;
-                    }
-    
-                    p{
-                        font-size: 1.1em;
-                        margin-top: .5em;
-                        margin-right: .5em;
-                       
-                    }
-                }
-            }
-            
-            .productosContainer {
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-                margin-top: 10vh;
-                width: 85%;
-                column-gap: 5%;
-                
-                .productos{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    margin-bottom: 10%;
-    
-                    img{
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-    
-                    .prodNombreCont{
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: flex-start;
-                        width: 95%;
-                        margin-top: 10px;
-    
-                        h3{
-                            font-size: 1.08em;
-                            margin-bottom: 10px;
-                        }
-                        
-                        p{
-                            font-size: 1em;
-                            margin-right: 10px;
-                        }
-                    }
-    
-                    .btnAgregar{
-                        transition: .5s;
-                        margin-top: 10px;
-                        background-color: white;
-                        color: black;
-                        width: 95%;
-                        text-align: start;
-                        height: 3em;
-                        font-size: 1em;
-                        border: none;
-                        cursor: pointer;
-                    }
-                    
-                }
-            }
-            
-            .toastContainer{
-                position: fixed;
-                top: 9em;
-                right: 1.5em;
-                
-                .toastBox{
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    border: solid .5px $colorBordes;
-                    background-color: $colorFondo;
-                    width: 20em;
-                    height: 6.5em;
-                    padding: 3%;
-                    margin-bottom: 2%;
-                    
-                    .close{
-                        cursor:pointer;
-                        background-color: none;
-                        color: black;
-                        width: 3em;
-                        height: 1.2em;
-                        display: flex;
-                        flex-direction: row;
-                        //justify-content: ;
-                        align-items: center;
-                        width: 100%;
-    
-                        a{
-                            border-bottom: solid black .5px;
-                            margin-bottom: 5%;
-                            font-weight: bold;
-                            
-                        }
-                    }
-                }
-            }
-    
-            .checkout {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                width: 70%;
-                
-                
-    
-                .checkoutResumen {
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-end;
-                    padding-top: 5%;
-                    padding-bottom: 15%;
-                    
-    
-                    .checkoutProductos{
-                        display: flex;
-                        flex-direction: column;
-                        width: 100%;
-    
-                        .checkoutProductosCard {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            margin-bottom: 2%;
-                            border: solid 1px $colorBordes;
-    
-                            button{
-                                background-color: black;
-                                color: white;
-                                
-                            }
-                        }
-                    }
-                }
-    
-                .checkoutInfoPago{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    width: 100%;
-                    height: 100vh;
-    
-                    .checkoutFormCont{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        height: 100%;
-                        width: 80%;
-                        
-                        .checkoutForm{
-                            height: 100%;
-                            width: 100%;
-                            margin-bottom: 5%;
-    
-                            p{
-                                margin-bottom: 5%;
-                                font-weight: bold;
-                            }
-    
-                            input{
-                                width: 100%;
-                                height: 2em;
-                                margin-bottom: 2%;
-                                font-family: $font;
-                                font-size: 1em;
-                                color: gray;
-                            }
-                        }
-    
-                        #btnFin{
-                            background-color: black;
-                            color: white;
-                            border: none;
-                            width: 12em;
-                            height: 6em;
-                            font-family: $font;
-                            cursor: pointer;
-                        }
-    
-                    }
-                }
-            }
-    
-            .mensajeFinal{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-between;
-                height: 25vh;
-                margin-top: 10%;
-    
-            }
-        }
-
-        
-        footer{
-            background-color: $colorFooter;
-            height: 70vh;
-            margin-top: 15vh;
-            display: flex;
-            padding: 20px;
-            justify-content: space-around;
-            align-items: center;
-            font-family: $font;
-        
-            ul{
-                list-style: none;
-                height: 40%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-        
-                .footerTitulos{
-                    font-weight: bold;
-                    font-size: 18px;
-                }
-            }
-        
-            .redes{
-                flex-direction: row;
-                width: 15%;
-                font-size: 25px;
-                align-items: center;
-                a{
-                    color: black;
-                }
-            }
-        }
-    }
-}
-
-
-@media only screen and (min-width: 992px){
+@media only screen and (min-width: 992px) {
 body{
     header{
         .navContainer {

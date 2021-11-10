@@ -2,7 +2,7 @@
 
 .hidden { display: none; }
 
-body { font-family: "Zen Kaku Gothic Antique", sans-serif; -webkit-transition: .5s; transition: .5s; }
+body { font-family: "Zen Kaku Gothic Antique", sans-serif; font-size: 16px; -webkit-transition: .5s; transition: .5s; }
 
 body header { background-color: #ffffff; width: 100%; }
 
@@ -10,15 +10,9 @@ body.dark { background-color: #242323; color: white; }
 
 body.dark header .navContainer { background-color: #242323; }
 
-body.dark header .navContainer .navSecciones { background-color: #242323; -webkit-box-shadow: 0px 0px 10px black; box-shadow: 0px 0px 10px black; }
-
-body.dark header .navContainer .navSecciones .navSeccionesLista a { color: white; }
-
-body.dark header .carritoInner { background-color: #242323 !important; }
+body.dark header .carritoInner { background-color: #242323 !important; border: solid 1px #5e5e5e; }
 
 body.dark header .carritoInner #elegidos { background-color: #242323; color: white; }
-
-body.dark header .carritoInner #elegidos .btnQuitar { color: red; }
 
 body.dark header .carritoInner #comprar #totalContainer { color: white; }
 
@@ -42,26 +36,25 @@ body.dark footer a { color: white; }
 
 body.dark footer i { color: white; }
 
-@media only screen and (max-width: 768px) { body header .navContainer { -webkit-transition: .5s; transition: .5s; }
+@media only screen and (min-width: 400px) and (max-width: 991px) { body header .navContainer { -webkit-transition: .5s; transition: .5s; }
   body header .navContainer .navLogoContainer { background-color: black; color: white; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 30vh; }
-  body header .navContainer .navLogoContainer .navLogo { font-size: 2.2rem; text-decoration: none; color: white; margin-top: 1em; margin-bottom: 1em; }
+  body header .navContainer .navLogoContainer .navLogo { font-size: 2.5em; text-decoration: none; color: white; margin-top: 1em; margin-bottom: .5em; }
   body header .navContainer .navLogoContainer .navBuscarConfContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 90%; min-height: 25%; margin-bottom: 3em; }
   body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer { min-height: 100%; min-width: 60%; display: -webkit-box; display: -ms-flexbox; display: flex; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .navBuscar { min-height: 100%; width: 100%; border: none; border-radius: 20px; padding-left: 1em; font-size: 1em; font-family: "Zen Kaku Gothic Antique", sans-serif; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .btnBuscar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; left: 51%; top: 19%; color: black; font-size: 22px; z-index: 1; cursor: pointer; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; list-style: none; width: 25%; height: 100%; }
+  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .navBuscar { min-height: 100%; width: 100%; border: none; border-radius: 25px; padding-left: 1em; font-size: 1em; font-family: "Zen Kaku Gothic Antique", sans-serif; }
+  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .btnBuscar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; left: 52%; top: 18.5%; color: black; font-size: 1.5em; z-index: 1; cursor: pointer; }
+  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; -webkit-box-align: center; -ms-flex-align: center; align-items: center; list-style: none; height: 100%; margin-right: -80px; }
   body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario a { text-decoration: none; color: white; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario a i { font-size: 28px; }
   body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer { height: 28px; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer .navCart { color: white; background: none; border: none; font-size: 28px; cursor: pointer; }
+  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer .navCart { color: white; background: none; border: none; font-size: 2em; cursor: pointer; }
   body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer #contador { position: absolute; z-index: 1; margin-top: -40px; margin-left: 25px; height: 1.3em; width: 1.3em; border-radius: 50%; background-color: #3ed111; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
   body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer #contador.hidden { display: none; }
   body header .navContainer .btnDark { border: none; cursor: pointer; background: none; height: 100%; }
-  body header .navContainer .btnDark span { font-size: 25px; color: white; }
+  body header .navContainer .btnDark span { font-size: 2em; color: white; }
   body header .navContainer .btnDark .fa-moon { display: none; }
   body header .navContainer .btnDark.active .fa-moon { display: block; }
   body header .navContainer .btnDark.active .fa-sun { display: none; }
-  body header .navContainer .carritoInner { position: absolute; top: 25vh; right: 2%; background-color: white; color: black; min-height: -webkit-fit-content; min-height: -moz-fit-content; min-height: fit-content; max-height: 50vh; min-width: 50%; overflow-y: scroll; border: 0.1px #d8d5d5 solid; padding: 1%; }
+  body header .navContainer .carritoInner { position: absolute; top: 25vh; right: 2%; background-color: white; color: black; min-height: -webkit-fit-content; min-height: -moz-fit-content; min-height: fit-content; max-height: 50vh; min-width: 50%; overflow-y: scroll; border: 0.1px #d8d5d5 solid; padding: 2%; }
   body header .navContainer .carritoInner #cartEmpty { margin-top: 5vh; margin-bottom: 10vh; }
   body header .navContainer .carritoInner #elegidos .btnQuitar { cursor: pointer; background-color: black; color: white; height: 5%; width: 5%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
   body header .navContainer .carritoInner #elegidos .seleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; margin-bottom: 10px; border: solid 1px #d8d5d5; }
@@ -69,114 +62,47 @@ body.dark footer i { color: white; }
   body header .navContainer .carritoInner #elegidos .seleccionados .nombreSeleccionados .precioSeleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; }
   body header .navContainer .carritoInner #comprar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; margin-right: 2%; }
   body header .navContainer .carritoInner #comprar.hidden { display: none; }
-  body header .navContainer .carritoInner #comprar #btnComprar { background-color: black; color: white; border: none; width: 7em; height: 2em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
+  body header .navContainer .carritoInner #comprar #btnComprar { background-color: black; color: white; border: none; width: 8em; height: 2.5em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
   body header .navContainer .carritoInner #comprar #totalContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
   body header .navContainer .carritoInner::-webkit-scrollbar { display: none; }
   body main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; }
-  body main .confirm { position: fixed; top: 30vh; right: 5rem; background-color: white; border: #d8d5d5 solid 1px; height: 10rem; width: 15rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 1%; }
+  body main .confirm { position: fixed; top: 30vh; right: 10%; background-color: white; border: #d8d5d5 solid 1px; height: 10em; width: 15em; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 1%; }
   body main .confirm :nth-child(2) { font-weight: bold; }
   body main .confirm .btnConfirm { width: 60%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
   body main .confirm .btnConfirm button { background-color: black; color: white; border: none; width: 5em; height: 2em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
   body main .filters { width: 95%; margin-top: 5vh; padding-left: 2%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-  body main .filters h3 { font-size: 1.3em; padding-top: 5px; }
-  body main .filters .filtersContainer { display: -webkit-box; display: -ms-flexbox; display: flex; width: 80%; }
-  body main .filters .filtersContainer select { width: 70%; height: 2.2em; margin-top: 10px; margin-right: 2%; font-family: "Zen Kaku Gothic Antique", sans-serif; font-size: 0.9em; }
-  body main .filters .filtersContainer p { font-size: 1.1em; margin-top: .5em; margin-right: .5em; }
+  body main .filters h3 { font-size: 1.3em; padding-left: 5%; }
+  body main .filters .filtersContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; width: 80%; }
+  body main .filters .filtersContainer div { min-width: 270px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
+  body main .filters .filtersContainer div select { min-width: 180px; height: 2.2em; margin-top: 3%; font-family: "Zen Kaku Gothic Antique", sans-serif; font-size: 0.9em; }
+  body main .filters .filtersContainer div p { min-width: 60px; font-size: 1.1em; margin-top: .5em; margin-right: .5em; }
   body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: (minmax(15rem, 1fr))[auto-fill]; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); margin-top: 10vh; width: 85%; -webkit-column-gap: 5%; column-gap: 5%; }
   body main .productosContainer .productos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 10%; }
   body main .productosContainer .productos img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
-  body main .productosContainer .productos .prodNombreCont { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; width: 95%; margin-top: 10px; }
-  body main .productosContainer .productos .prodNombreCont h3 { font-size: 1.08em; margin-bottom: 10px; }
-  body main .productosContainer .productos .prodNombreCont p { font-size: 1em; margin-right: 10px; }
-  body main .productosContainer .productos .btnAgregar { -webkit-transition: .5s; transition: .5s; margin-top: 10px; background-color: white; color: black; width: 95%; text-align: start; height: 3em; font-size: 1em; border: none; cursor: pointer; }
-  body main .toastContainer { position: fixed; top: 12em; right: 1.5em; }
+  body main .productosContainer .productos .prodNombreCont { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; width: 95%; margin-top: 1em; }
+  body main .productosContainer .productos .prodNombreCont h3 { margin-bottom: 3%; }
+  body main .productosContainer .productos .prodNombreCont p { font-size: 1.2em; margin-right: 2%; }
+  body main .productosContainer .productos .btnAgregar { -webkit-transition: .5s; transition: .5s; margin-top: 3%; background-color: white; color: black; width: 95%; text-align: start; height: 3em; font-size: 1.1em; border: none; cursor: pointer; }
+  body main .toastContainer { position: fixed; top: 30vh; right: 3%; }
   body main .toastContainer .toastBox { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; border: solid 0.5px #d8d5d5; background-color: white; width: 20em; height: 6.5em; padding: 3%; margin-bottom: 2%; }
   body main .toastContainer .toastBox .close { cursor: pointer; background-color: none; color: black; width: 3em; height: 1.2em; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; }
   body main .toastContainer .toastBox .close a { border-bottom: solid black .5px; margin-bottom: 5%; font-weight: bold; }
-  body main .checkout { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 70%; }
-  body main .checkout .checkoutResumen { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; padding-top: 5%; padding-bottom: 15%; }
-  body main .checkout .checkoutResumen .checkoutProductos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; width: 100%; }
-  body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 2%; border: solid 1px #d8d5d5; }
+  body main .checkout { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 80%; }
+  body main .checkout .checkoutResumen { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding-top: 5%; padding-bottom: 15%; }
+  body main .checkout .checkoutResumen .checkoutProductos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; width: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+  body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 2%; border: solid 1px #d8d5d5; min-width: 300px; width: 90%; max-width: 400px; }
   body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard button { background-color: black; color: white; }
-  body main .checkout .checkoutInfoPago { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; height: 100vh; }
+  body main .checkout .checkoutInfoPago { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content; font-size: 1.2em; }
   body main .checkout .checkoutInfoPago .checkoutFormCont { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 100%; width: 80%; }
   body main .checkout .checkoutInfoPago .checkoutFormCont .checkoutForm { height: 100%; width: 100%; margin-bottom: 5%; }
   body main .checkout .checkoutInfoPago .checkoutFormCont .checkoutForm p { margin-bottom: 5%; font-weight: bold; }
   body main .checkout .checkoutInfoPago .checkoutFormCont .checkoutForm input { width: 100%; height: 2em; margin-bottom: 2%; font-family: "Zen Kaku Gothic Antique", sans-serif; font-size: 1em; color: gray; }
   body main .checkout .checkoutInfoPago .checkoutFormCont #btnFin { background-color: black; color: white; border: none; width: 12em; height: 6em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
   body main .mensajeFinal { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; text-align: center; height: 25vh; width: 80%; margin-top: 10%; }
-  body footer { background-color: #e8e8e9; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content; margin-top: 15vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-family: "Zen Kaku Gothic Antique", sans-serif; padding: 5% 0 15% 0; }
+  body footer { background-color: #e8e8e9; height: -webkit-fit-content; height: -moz-fit-content; height: fit-content; margin-top: 15vh; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-family: "Zen Kaku Gothic Antique", sans-serif; padding: 5% 15% 15% 15%; }
   body footer ul { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; margin-top: 10%; list-style: none; }
-  body footer ul .footerTitulos { font-weight: bold; font-size: 18px; }
-  body footer .redes { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; min-width: 30%; font-size: 25px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-  body footer .redes a { color: black; } }
-
-@media only screen and (min-width: 769px) and (max-width: 991px) { body header .navContainer .navLogoContainer { background-color: black; color: white; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 20vh; margin-bottom: 5%; }
-  body header .navContainer .navLogoContainer .navLogo { font-size: 2.2rem; text-decoration: none; color: white; margin-left: 35px; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 50%; height: 30%; margin-right: 2%; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer { height: 100%; width: 80%; position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-right: 6%; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .navBuscar { height: 100%; width: 100%; border: none; border-radius: 20px; padding-left: 1em; font-size: 1em; font-family: "Zen Kaku Gothic Antique", sans-serif; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navBuscarContainer .btnBuscar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; color: black; font-size: 20px; height: 100%; width: 2em; z-index: 1; border-radius: 20px; cursor: pointer; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; list-style: none; width: 20%; height: 100%; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario a { text-decoration: none; color: white; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario a i { font-size: 28px; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer { height: 28px; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer .navCart { color: white; background: none; border: none; font-size: 28px; cursor: pointer; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer #contador { position: absolute; z-index: 1; margin-top: -40px; margin-left: 25px; height: 1.3em; width: 1.3em; border-radius: 50%; background-color: #3ed111; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .navConfigUsuario .navCartContainer #contador.hidden { display: none; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner { position: absolute; top: 15vh; right: 8%; background-color: white; color: black; min-height: -webkit-fit-content; min-height: -moz-fit-content; min-height: fit-content; max-height: 50vh; width: 50%; overflow-y: scroll; border: 0.1px #d8d5d5 solid; padding: 1%; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #cartEmpty { margin-top: 5vh; margin-bottom: 10vh; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .btnQuitar { cursor: pointer; background-color: black; color: white; height: 5%; width: 5%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .seleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; margin-bottom: 10px; border: solid 1px #d8d5d5; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .seleccionados .nombreSeleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #elegidos .seleccionados .nombreSeleccionados .precioSeleccionados { display: -webkit-box; display: -ms-flexbox; display: flex; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; margin-right: 2%; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar.hidden { display: none; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar #btnComprar { background-color: black; color: white; border: none; width: 7em; height: 2em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner #comprar #totalContainer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .carritoInner::-webkit-scrollbar { display: none; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark { border: none; cursor: pointer; background: none; margin-left: 5%; margin-right: 2%; height: 100%; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark span { font-size: 25px; color: white; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark .fa-moon { display: none; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark.active .fa-moon { display: block; }
-  body header .navContainer .navLogoContainer .navBuscarConfContainer .btnDark.active .fa-sun { display: none; }
-  body main { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; }
-  body main .confirm { position: fixed; top: 25vh; right: 11rem; background-color: white; border: #d8d5d5 solid 1px; height: 10rem; width: 15rem; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 1%; }
-  body main .confirm :nth-child(2) { font-weight: bold; }
-  body main .confirm .btnConfirm { width: 60%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-  body main .confirm .btnConfirm button { background-color: black; color: white; border: none; width: 5em; height: 2em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
-  body main .filters { width: 95%; padding-left: 2%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-  body main .filters h3 { font-size: 1.3em; padding-top: 5px; }
-  body main .filters .filtersContainer { display: -webkit-box; display: -ms-flexbox; display: flex; width: 80%; }
-  body main .filters .filtersContainer select { width: 70%; height: 2.2em; margin-top: 10px; margin-right: 2%; font-family: "Zen Kaku Gothic Antique", sans-serif; font-size: 0.9em; }
-  body main .filters .filtersContainer p { font-size: 1.1em; margin-top: .5em; margin-right: .5em; }
-  body main .productosContainer { display: -ms-grid; display: grid; -ms-grid-columns: (minmax(15rem, 1fr))[auto-fill]; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); margin-top: 10vh; width: 85%; -webkit-column-gap: 5%; column-gap: 5%; }
-  body main .productosContainer .productos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 10%; }
-  body main .productosContainer .productos img { width: 100%; height: 100%; -o-object-fit: cover; object-fit: cover; }
-  body main .productosContainer .productos .prodNombreCont { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: start; -ms-flex-align: start; align-items: flex-start; width: 95%; margin-top: 10px; }
-  body main .productosContainer .productos .prodNombreCont h3 { font-size: 1.08em; margin-bottom: 10px; }
-  body main .productosContainer .productos .prodNombreCont p { font-size: 1em; margin-right: 10px; }
-  body main .productosContainer .productos .btnAgregar { -webkit-transition: .5s; transition: .5s; margin-top: 10px; background-color: white; color: black; width: 95%; text-align: start; height: 3em; font-size: 1em; border: none; cursor: pointer; }
-  body main .toastContainer { position: fixed; top: 9em; right: 1.5em; }
-  body main .toastContainer .toastBox { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; border: solid 0.5px #d8d5d5; background-color: white; width: 20em; height: 6.5em; padding: 3%; margin-bottom: 2%; }
-  body main .toastContainer .toastBox .close { cursor: pointer; background-color: none; color: black; width: 3em; height: 1.2em; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; }
-  body main .toastContainer .toastBox .close a { border-bottom: solid black .5px; margin-bottom: 5%; font-weight: bold; }
-  body main .checkout { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 70%; }
-  body main .checkout .checkoutResumen { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; padding-top: 5%; padding-bottom: 15%; }
-  body main .checkout .checkoutResumen .checkoutProductos { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; width: 100%; }
-  body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-bottom: 2%; border: solid 1px #d8d5d5; }
-  body main .checkout .checkoutResumen .checkoutProductos .checkoutProductosCard button { background-color: black; color: white; }
-  body main .checkout .checkoutInfoPago { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 100%; height: 100vh; }
-  body main .checkout .checkoutInfoPago .checkoutFormCont { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; height: 100%; width: 80%; }
-  body main .checkout .checkoutInfoPago .checkoutFormCont .checkoutForm { height: 100%; width: 100%; margin-bottom: 5%; }
-  body main .checkout .checkoutInfoPago .checkoutFormCont .checkoutForm p { margin-bottom: 5%; font-weight: bold; }
-  body main .checkout .checkoutInfoPago .checkoutFormCont .checkoutForm input { width: 100%; height: 2em; margin-bottom: 2%; font-family: "Zen Kaku Gothic Antique", sans-serif; font-size: 1em; color: gray; }
-  body main .checkout .checkoutInfoPago .checkoutFormCont #btnFin { background-color: black; color: white; border: none; width: 12em; height: 6em; font-family: "Zen Kaku Gothic Antique", sans-serif; cursor: pointer; }
-  body main .mensajeFinal { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; height: 25vh; margin-top: 10%; }
-  body footer { background-color: #e8e8e9; height: 70vh; margin-top: 15vh; display: -webkit-box; display: -ms-flexbox; display: flex; padding: 20px; -ms-flex-pack: distribute; justify-content: space-around; -webkit-box-align: center; -ms-flex-align: center; align-items: center; font-family: "Zen Kaku Gothic Antique", sans-serif; }
-  body footer ul { list-style: none; height: 40%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-  body footer ul .footerTitulos { font-weight: bold; font-size: 18px; }
-  body footer .redes { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; width: 15%; font-size: 25px; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+  body footer ul .footerTitulos { font-weight: bold; font-size: 1.2em; }
+  body footer .redes { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; min-width: 25%; font-size: 1.5em; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
   body footer .redes a { color: black; } }
 
 @media only screen and (min-width: 992px) { body header .navContainer { -webkit-transition: .5s; transition: .5s; }

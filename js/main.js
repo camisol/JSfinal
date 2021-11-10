@@ -18,7 +18,7 @@ class productosNuevos {
   }
 }
 
-//MOSTRAR PRODUCTOS
+//MOSTRAR PRODUCTOS card
 const mostrarProductos = (array) => {
   $('#productosContainer').html('')
   for (const producto of array) {
@@ -49,22 +49,23 @@ const agregarProductos = (array) => {
         alert('No hay más stock de este producto');
       } else {
 
-        $('#cartEmpty').addClass('hidden')
-        $('#comprar').removeClass('hidden');
+        $('#cartEmpty').addClass('hidden') //sacar mensaje carrito vacio
+        $('#comprar').removeClass('hidden'); //mostrar el total y el boton de compra
+
         producto.stock -= 1;
 
         cart.push(producto);
-        localStorage.setItem('cart', JSON.stringify({ cart }));
+        localStorage.setItem('cart', JSON.stringify({ cart })); //agregar a [cart] y subir a storage
 
-        crearToast(`${producto.nombre}`, `${producto.precio}`, `agregado al`);
+        crearToast(`${producto.nombre}`, `${producto.precio}`, `agregado al`); //toast producto agregado
 
-        cardSelected(producto)
+        cardSelected(producto) //crea card de producto en carrito
 
         let subtotal1 = parseInt($('#totalNumero').html()) + producto.precio
         $('#totalNumero').empty()
-        $('#totalNumero').append(subtotal1)
+        $('#totalNumero').append(subtotal1)   //calcular total y reemplazar en carrito
 
-        i++
+        i++ //contador
         contadorCart()
       }
     })
@@ -73,6 +74,8 @@ const agregarProductos = (array) => {
 
 //agregarProductos(productos)
 
+
+//CONFIRMACION PARA ELIMINAR PRODUCTO DEL CARRITO
 const eliminarConfirm = (productName) => {
 
   let confirmText = `
@@ -86,43 +89,45 @@ const eliminarConfirm = (productName) => {
   </div>
   `
   $('main').prepend(confirmText)
-
 }
+
 
 //ELIMINAR PRODUCTO DEL CARRITO
 const eliminarProductos = () => {
   $('.carritoInner #elegidos').on('click', '.btnQuitar', (e) => {
 
+    //tomar nombre y precio del producto
+
     let nombre = e.target.previousElementSibling.firstElementChild.innerHTML;
     let precio = e.target.previousElementSibling.lastElementChild.lastElementChild.innerHTML;
 
-    eliminarConfirm(nombre)
+    eliminarConfirm(nombre) //confirmar eliminacion
 
     $('#btnSi').click(() => {
       let subtotal2 = parseInt($('#totalNumero').html()) - precio
       $('#totalNumero').empty()
-      $('#totalNumero').append(subtotal2)
+      $('#totalNumero').append(subtotal2) //restar precio del total y reemplazar
 
-      e.target.parentElement.remove();
+      e.target.parentElement.remove(); //eliminar card del carrito
 
       crearToast(nombre, precio, `eliminado del`)
 
-      let found = cart.find(e => e.nombre === nombre)
+      let found = cart.find(e => e.nombre === nombre) //eliminar producto de [cart] y volver a cargar a storage
       let index = cart.indexOf(found);
       cart.splice(index, 1);
       localStorage.setItem('cart', JSON.stringify({ cart }))
 
       found.stock += 1
 
-      if (cart.length === 0) {
+      if (cart.length === 0) {   //si el carrito vacio volver a mostrar mensaje 
         $('#cartEmpty').removeClass('hidden')
         $('#comprar').addClass('hidden');
       }
 
-      i--
+      i-- //contador
       contadorCart()
 
-      $('.confirm').remove()
+      $('.confirm').remove() //eliminar mensaje confirmacion y cerrar carrito
       $('.carritoInner').addClass('hidden')
     })
 
@@ -136,7 +141,7 @@ const eliminarProductos = () => {
 //eliminarProductos()
 
 
-// contador de productos en carrito
+// CONTADOR DE PRODUCTOS EN CARRITO
 const contadorCart = () => {
 
   let numeroContador = i
@@ -147,11 +152,10 @@ const contadorCart = () => {
   if ($('#contador').html() == 0) {
     $('#contador').addClass('hidden')
   }
-
 }
 
 
-// crear card de producto seleccionado en carrito
+// CREAR CARD PRODUCTO SELECCIONADO EN CARRITO
 const cardSelected = (prod) => {
   $('.carritoInner #elegidos').append(`
             <div class="seleccionados">
@@ -168,16 +172,15 @@ const cardSelected = (prod) => {
 }
 
 
-
-// conservar carrito cuando se actualiza la página
+// CONSERVAR CARRITO CUANDO ACTUALIZA LA PAGINA
 const guardarCart = () => {
   let local = JSON.parse(localStorage.getItem('cart'));
-  if ($('#elegidos').is(':empty') || local.cart > 0) {
+  if ($('#elegidos').is(':empty') || local.cart > 0) { //carrito vacio y si [cart] contiene elementos
 
     local.cart.forEach((e) => {
-      cardSelected(e)
-      cart.push(e)
-      subtotal3 += e.precio
+      cardSelected(e)   //crea card producto seleccionado
+      cart.push(e)      //agrega los productos a "cart"
+      subtotal3 += e.precio  //sumar precios
 
       $('#cartEmpty').addClass('hidden')
       $('#comprar').removeClass('hidden');
@@ -185,17 +188,16 @@ const guardarCart = () => {
       $('#totalNumero').append(subtotal3)
     })
 
-    let numeroContador1 = local.cart.length
+    let numeroContador1 = local.cart.length //agregar el contador
     $('#contador').empty()
     $('#contador').append(numeroContador1)
     $('#contador').removeClass('hidden')
 
     if ($('#contador').html() == 0) {
       $('#contador').addClass('hidden')
-
     }
 
-    i = parseInt($('#contador').html())
+    i = parseInt($('#contador').html()) //tomar valor de i del numero en contador
   }
 }
 
@@ -243,7 +245,7 @@ $('.navCart').click(() => {
 const filtrarNombre = () => {
   let searchValue = $('#navBuscar').val();
   let searchLower = searchValue.toLowerCase();
-  let filtrados = productos1.filter((producto) => {
+  let filtrados = array.filter((producto) => {
     let productName = producto.nombre.toLowerCase();
     return productName.includes(searchLower);
   })
@@ -257,6 +259,7 @@ const filtrarNombre = () => {
 
 $('#btnBuscar').on('click', filtrarNombre)
 $('#navBuscar').on("keyup", filtrarNombre)
+
 
 
 //FILTRAR POR PRECIO
@@ -281,7 +284,6 @@ const filtrarPrecioSelect = (array) => {
     } else {
       mostrarProductos(array)
       agregarProductos(array)
-
     }
   })
 }
@@ -289,16 +291,13 @@ const filtrarPrecioSelect = (array) => {
 //filtrarPrecioValores(productos)
 
 //FILTRAR POR COLOR
-
 const filtrarColor = (color, array) => {
   let filtrados3 = array.filter(producto => producto.color == color);
   if (filtrados3.length > 0) {
     mostrarProductos(filtrados3)
     agregarProductos(filtrados3)
   } else { $('#productosContainer').html('<p id="noSearch"> No se encuentran productos </p>') }
-
 }
-
 
 const filtrarColorSelect = (array) => {
   $('#filterSelect1').change(() => {
@@ -313,13 +312,13 @@ const filtrarColorSelect = (array) => {
     } else {
       mostrarProductos(array)
       agregarProductos(array)
-
     }
   })
 }
 
+
 //FINALIZAR COMPRA
-$('.btnComprar').click(() => {
+$('.btnComprar').click(() => {  //pasa a pagina checkout
   $('main').html('')
   $('.navSecciones').addClass('hidden')
   $('.carritoInner').toggleClass('hidden')
@@ -334,7 +333,7 @@ $('.btnComprar').click(() => {
   </div>
   `);
 
-  for (elemento of cart) {
+  for (elemento of cart) { //crea card de los productos 
     $('.checkout .checkoutProductos').append(`
     <div class="checkoutProductosCard">
       <img src="imagenes/fotoProducto${elemento.id}.jpg" height="100px">
@@ -345,14 +344,15 @@ $('.btnComprar').click(() => {
       <button class="btnCheckoutDelete">X</div>
     </div>`)
 
-    final += elemento.precio
+    final += elemento.precio //sumar total
   };
 
   $('.checkout .checkoutPrecioFinal').append(`Total: $${final}`)
 
-  checkoutDelete()
+  checkoutDelete() //eliminar productos 
 
-  $('.checkout .checkoutInfoPago').append(`
+  //formulario compra
+  $('.checkout .checkoutInfoPago').append(`  
   <div class="checkoutFormCont">
     <div class="checkoutForm personal">
       <p>Información personal</p>
@@ -380,42 +380,37 @@ $('.btnComprar').click(() => {
   </div>`);
 
   finCompra()
-
-
 })
 
+
+//ELIMINAR PRODUCTO DE PAGINA CHECKOUT
 const checkoutDelete = () => {
   $('.btnCheckoutDelete').click((e) => {
 
     let card = e.currentTarget.parentElement
-    card.remove()
+    card.remove() //eliminar card
 
     let price = e.currentTarget.previousElementSibling.lastElementChild.innerHTML
     let price2 = parseInt(price.substring(1))
-
     final -= price2
-
     $('.checkout .checkoutPrecioFinal').empty();
-    $('.checkout .checkoutPrecioFinal').append(`Total: $${final}`)
-
+    $('.checkout .checkoutPrecioFinal').append(`Total: $${final}`) //restar precio y reemplazar
 
     let nombre = e.currentTarget.previousElementSibling.firstElementChild.innerHTML
     let found = cart.find(e => e.nombre == nombre)
     let index = cart.indexOf(found);
-    console.log(found)
     cart.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify({ cart }))
+    localStorage.setItem('cart', JSON.stringify({ cart })) //eliminar de [cart] y subir a storage
 
     found.stock += 1
-
   })
 }
 
 
-// BOTON FINALIZAR COMPRA
+//BOTON FINALIZAR COMPRA Y MENSAJE FINAL
 const finCompra = () => {
   $('#btnFin').click((e) => {
-    e.preventDefault();
+
     let emailCompra = $('.inputEmail').val()
     let nombreCompra = $('.inputNombre').val()
     $('main').html('')
@@ -446,7 +441,7 @@ $('#btnDark').click(function () {
 
 
 
-//-------------- tomar productos de JSON. DESAFIO 14 -----------------------------------
+//-------------- tomar productos de JSON y aplicar funciones -----------------------------------
 $.getJSON("js/data.json", function (response, state) {
 
   if (state === "success") {
@@ -455,8 +450,6 @@ $.getJSON("js/data.json", function (response, state) {
     agregarProductos(productos1)
     filtrarPrecioSelect(productos1)
     filtrarColorSelect(productos1)
-
-
   }
 })
 
