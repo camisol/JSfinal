@@ -339,8 +339,8 @@ $('.btnComprar').click(() => {
     <div class="checkoutProductosCard">
       <img src="imagenes/fotoProducto${elemento.id}.jpg" height="100px">
       <div class="checkoutName">
-        <p> ${elemento.nombre}</p> 
-        <p >$${elemento.precio}</p>
+        <p>${elemento.nombre}</p> 
+        <p>$${elemento.precio}</p>
       </div>
       <button class="btnCheckoutDelete">X</div>
     </div>`)
@@ -370,7 +370,7 @@ $('.btnComprar').click(() => {
       <label for="numTarjeta">Tarjeta Número</label>
       <input type="text" name="numTarjeta" value="**** **** **** 1234">
       <label for="nombreTarjeta">Nombre Titular</label>
-      <input type="text" name="nombreTarjeta" value="Nombre Cliente">
+      <input type="text" name="nombreTarjeta" value="Camila Solessio">
       <label for="codigoTarjeta">CVC</label>
       <input type="text" name="codigoTarjeta" value="***">
       <label for="codigoTarjeta">Vencimiento</label>
@@ -380,6 +380,8 @@ $('.btnComprar').click(() => {
   </div>`);
 
   finCompra()
+
+
 })
 
 const checkoutDelete = () => {
@@ -395,6 +397,17 @@ const checkoutDelete = () => {
 
     $('.checkout .checkoutPrecioFinal').empty();
     $('.checkout .checkoutPrecioFinal').append(`Total: $${final}`)
+
+
+    let nombre = e.currentTarget.previousElementSibling.firstElementChild.innerHTML
+    let found = cart.find(e => e.nombre == nombre)
+    let index = cart.indexOf(found);
+    console.log(found)
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify({ cart }))
+
+    found.stock += 1
+
   })
 }
 
@@ -430,13 +443,6 @@ $('#btnDark').click(function () {
   document.body.classList.toggle('dark');
   btnDark.classList.toggle('active')
 });
-
-
-
-//guardarCart()
-
-
-
 
 
 

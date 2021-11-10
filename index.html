@@ -25,11 +25,14 @@
                         <span class="btnBuscar" id="btnBuscar"><i class="fas fa-search"></i></span>
                     </div>
                     <ul class="navConfigUsuario">
-                        <li><a class="navUsuario" href="#"><i class="fas fa-user"></i></a></li>
-                        <li><a class="navFavoritos" href="#"><i class="fas fa-heart"></i></a></li>
-                        <li><a class="navCart" href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                        <!-- <li><a class="navUsuario" href="#"><i class="fas fa-user"></i></a></li>
+                        <li><a class="navFavoritos" href="#"><i class="fas fa-heart"></i></a></li> -->
+                        <li class="navCartContainer">
+                            <i class="fas fa-shopping-cart navCart"></i></a>
+                            <span id="contador" class="contador hidden">0</span>
+                        </li>
                     </ul>
-                    <span id="contador" class="contador hidden">0</span>
+                    <!-- <span id="contador" class="contador hidden">0</span> -->
                     <button class="btnDark active" id="btnDark">
                         <span><i class="far fa-sun"></i></span>
                         <span><i class="far fa-moon"></i></span>
@@ -50,7 +53,7 @@
 
                 </div>
             </div>
-            <div class="navSecciones" id="navSecciones">
+            <!-- <div class="navSecciones" id="navSecciones">
                 <ul class="navSeccionesLista">
                     <li><a class="navListaItems" href="#">Novedades</a></li>
                     <li><a class="navListaItems" href="#">Urbano</a></li>
@@ -58,7 +61,7 @@
                     <li><a class="navListaItems" href="#">Marcas</a></li>
                     <li><a class="navListaItems" href="#">Sale</a></li>
                 </ul>
-            </div>
+            </div> -->
         </div>
     </header>
 
@@ -76,7 +79,7 @@
                     <option class="opcion4" value="4">$15000 +</option>
                 </select>
 
-                <p>Precio</p>
+                <p>Color</p>
                 <select id="filterSelect1">
                     <option class="opcion0" value="0" selected>Todos</option>
                     <option class="opcion1" value="1">Blanco</option>
